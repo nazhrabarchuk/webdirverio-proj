@@ -166,11 +166,6 @@ exports.config = {
     // resolved to continue.
     beforeSuite: (suite) => {
         console.log('----- Running test:', suite.title);
-        console.log('----- Context:', suite.capabilities);
-        console.log('----- Browser name:', suite.browserName);
-        console.log('suite:', suite);
-        console.log('specs', specs);
-        console.log('capabilities', capabilities);
         browser.setWindowSize(1080, 900);
       
     },

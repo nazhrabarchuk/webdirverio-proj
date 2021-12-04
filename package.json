@@ -5,8 +5,9 @@
   "main": "index.js",
   "author": "",
   "license": "ISC",
+  "type": "module",
   "scripts": {
-
+    "wdio-run": "wdio run wdio.conf.cjs"
   },
   "devDependencies": {
     "@wdio/cli": "^7.16.9",
@@ -15,8 +16,9 @@
     "@wdio/mocha-framework": "^7.16.6",
     "@wdio/selenium-standalone-service": "^7.16.6",
     "@wdio/spec-reporter": "^7.16.9",
+    "chai": "^4.3.4",
     "chromedriver": "^96.0.0",
     "wdio-chromedriver-service": "^7.2.2",
-    "webdriverio": "^7.16.9"                                                                                             
+    "webdriverio": "^7.16.9"
   }
 }

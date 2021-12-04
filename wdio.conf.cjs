@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './project/test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -54,22 +54,21 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        // {
-        //     browserName: 'chrome',
-        //     acceptInsecureCerts: true,
-        //     maxInstances: 5,
-        //   },
-          {
-            browserName: 'firefox',
+        {
+            browserName: 'chrome',
             acceptInsecureCerts: true,
             maxInstances: 5,
           },
+        //   {
+        //     browserName: 'firefox',
+        //     acceptInsecureCerts: true,
+        //     maxInstances: 5,
+        //   },
       
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    
  
 ],
     //
@@ -103,7 +102,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://the-internet.herokuapp.com',
+    baseUrl: 'http://localhost:3000/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -164,10 +163,10 @@ exports.config = {
     // it and to build services around it. You can either apply a single function or an array of
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
     // resolved to continue.
-    beforeSuite: (suite) => {
-        console.log('----- Running test:', suite.title);
-        browser.setWindowSize(1080, 900);
-      
+    async before(capabilities, specs) {
+        // setting default browser size
+        await browser.setWindowSize(1980, 1024);
+        console.log(`------- Browser name: ${capabilities.browserName}`)
     },
     afterSuite:(suite)=>{
         console.log(`'----- Suite "${suite.title}" running finished`);

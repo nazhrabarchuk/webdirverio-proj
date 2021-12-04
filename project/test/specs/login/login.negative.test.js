@@ -9,9 +9,7 @@ const ERROR_TEXT = 'Invalid email or password.';
 describe('Login testing', ()=>{
     before(async () => {
         MainPage.open();
-        await MainPage.clickCloseDialogButton();
-        await MainPage.clickAccountButton();
-        await MainPage.clickLoginButton();
+        await (await MainPage.getHeaderCo()).navigateToLogin();
     });
 
     it('Neggative: should display error login message', async () => {

@@ -8,17 +8,15 @@ const PASSWORD_DEFAULT_TEXT = 'testtest';
 describe('Login testing', () => {
     before(async () => {
         MainPage.open();
-        await MainPage.clickCloseDialogButton();
-        await MainPage.clickAccountButton();
-        await MainPage.clickLoginButton();
+        await (await MainPage.getHeaderCo()).navigateToLogin();
     });
 
     it('Positive: should login with valid credentials', async () => {
         await loginPage.login(EMAIL_DEFAULT_TEXT, PASSWORD_DEFAULT_TEXT);
         await browser.pause(1000);
-        await MainPage.clickAccountButton();
+        await (await MainPage.getHeaderCo()).openAccountMenu();
 
-        assert.isTrue(await MainPage.isLogoutButtonExist());
+        assert.isTrue(await (await MainPage.getHeaderCo()).isLogoutButtonExist());
     });
 });
 

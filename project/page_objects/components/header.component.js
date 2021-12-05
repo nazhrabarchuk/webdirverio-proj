@@ -1,7 +1,5 @@
-import { MainPage } from "../pages/main.page";
 
-
-export class HeaderComponent extends MainPage{
+export class HeaderComponent{
 
     get accountButton(){
         return $('#navbarAccount');
@@ -12,13 +10,21 @@ export class HeaderComponent extends MainPage{
     get logoutButton(){
         return $('#navbarLogoutButton');
     }
+    get burgerButton(){
+        return $('button[aria-label="Open Sidenav"]')
+    }
 
     async clickAccountButton(){
-        return this.accountButton.click();
+        await this.accountButton.click();
     }
     async clickLoginButton(){
-        return this.loginButton.click();
+        await this.loginButton.click();
     }
+
+    async clickBurgerButton(){
+        await this.burgerButton.click();
+    }
+
      async isLogoutButtonExist(){
         return this.logoutButton.isExisting();
     }

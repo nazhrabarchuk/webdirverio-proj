@@ -1,4 +1,5 @@
 import { HeaderComponent } from "../components/header.component.js";
+import { SidebarComponent } from "../components/sidebar.component.js";
 import BasePage from "./base.page.js";
 
  export class MainPage extends BasePage{
@@ -9,9 +10,9 @@ import BasePage from "./base.page.js";
   
    open(){
        super.open('/#');
-       if(this.closeDialogButton.isExisting()){
+    //    if(this.closeDialogButton.isExisting()){
         this.clickCloseDialogButton();
-       }
+    //    }
    }
 
    async clickCloseDialogButton(){
@@ -20,6 +21,9 @@ import BasePage from "./base.page.js";
    
    async getHeaderCo(){
        return new HeaderComponent();
+   }
+   async getSidebarCo(){
+       return new SidebarComponent();
    }
       
 }

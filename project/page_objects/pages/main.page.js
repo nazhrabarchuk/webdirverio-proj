@@ -3,12 +3,12 @@ import { SidebarComponent } from "../components/sidebar.component.js";
 import BasePage from "../../../framework/elements/base.page.js";
 import { Button } from "../../../framework/elements/controls/button.control.js";
 
-const CLOSE_MODAL_WINDOW_BUTTON = $('button.close-dialog');
+const CLOSE_MODAL_WINDOW_BUTTON = 'button.close-dialog';
 
  export class MainPage extends BasePage{
 
-   get closeDialogButton(){
-       return new Button(CLOSE_MODAL_WINDOW_BUTTON, 'Close modal window');
+   async getCloseDialogButton(){
+       return this.getElement(Button, CLOSE_MODAL_WINDOW_BUTTON, 'Close modal window');
    }
   
    open(){
@@ -19,7 +19,7 @@ const CLOSE_MODAL_WINDOW_BUTTON = $('button.close-dialog');
    }
 
    async clickCloseDialogButton(){
-      await this.closeDialogButton.click();
+      await this.getCloseDialogButton().click();
    }
    
    async getHeaderCo(){

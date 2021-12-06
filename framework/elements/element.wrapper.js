@@ -1,5 +1,5 @@
 
-class HtmlElement{
+export class HtmlElement{
     constructor(wdioElement, name){
         this.wdioElement = wdioElement;
         this.elementName = name;
@@ -11,6 +11,10 @@ class HtmlElement{
 
     get wdioElementInstance() {
         return this.wdioElement;
+    }
+
+    async getElement(elementType, elementLocator,elementName) {
+        return new elementType(await $(`${elementLocator}`), elementName);
     }
 
     async isExisting() {

@@ -1,6 +1,6 @@
-import { HtmlElement } from "../element.wrapper.js";
+import  HtmlElement  from "../element.wrapper.js";
 
-class Button extends HtmlElement{
+export default class Button extends HtmlElement{
 
 }
-export {Button};
+

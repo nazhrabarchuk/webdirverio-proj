@@ -1,42 +1,54 @@
 
-export class HtmlElement{
+export default class HtmlElement{
     constructor(wdioElement, name){
-        this.wdioElement = wdioElement;
+        this.wdioElement = wdioElement ;
         this.elementName = name;
     }
 
-    get elementName(){
-        return this.elementName;
-    }
+    // get elementName(){
+    //     return this.elementName;
+    // }
 
-    get wdioElementInstance() {
-        return this.wdioElement;
-    }
+    // get wdioElementInstance() {
+    //     return this.wdioElement;
+    // }
 
     async getElement(elementType, elementLocator,elementName) {
-        return new elementType(await $(`${elementLocator}`), elementName);
+        return new elementType($(`${elementLocator}`), elementName);
     }
 
     async isExisting() {
-        return this.wdioElementInstance.isExisting();
+        return await this.wdioElement.isExisting();
     }
     
     async click() {
-        console.log( `Click on ${this.constructor.name} "${this.elementName}" on ${this.wdioElement}`);  
-        await this.wdioElementInstance.click();
+        console.log( `Click on "${this.elementName}"`);  
+        await this.wdioElement.click();
     }
 
     async getText() {
-        return this.wdioElementInstance.getText();
+        return this.wdioElement.getText();
     }
 
     async getAttribute(atr){
         console.log( `Get attribute: ${atr} of "${this.elementName}"`);  
-        return this.wdioElementInstance.getAttribute(atr);
+        return this.wdioElement.getAttribute(atr);
     }
 
+    async waitFor(condition, options) {
+        return browser.waitUntil(async () => {
+            try {
+                return condition();
+            } catch (err) {
+                return false;
+            }
+        }, options);
+    }
+      async waitForDisplayed(){
+        await waitFor(async () => {
+          return this.wdioElement.isDisplayed();
+      }, options);
+      }
 
  
 }
-
-export {HtmlElement};

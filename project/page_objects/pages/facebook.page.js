@@ -1,20 +1,18 @@
 import BasePage from "../../../framework/elements/base.page.js";
-import { TextView } from "../../../framework/elements/controls/text.view.control.js";
-
-const PROFILE_LINK_TEXT_ELEMENT =  'a[href="https://www.facebook.com/owasp.juiceshop/"]';
+import Button from "../../../framework/elements/controls/button.control.js";
 
 export class FacebookPage extends BasePage{
 
-    async getProfileLinkText(){
-        return this.getElement(TextView, PROFILE_LINK_TEXT_ELEMENT, 'Profile link element');
+    get profileLink(){
+        return new Button($('a[href="https://www.facebook.com/owasp.juiceshop/"]'), 'Profile link element');
     }
 
     async getProfileLinkText(){
-        return this.getProfileLinkText().getText();
+        return this.profileLink.getText();
     }
 
     async isProfileLinkElementExist(){
-        return this.getProfileLinkText().isExisting();
+        return this.profileLink.isExisting();
     }
 
 }

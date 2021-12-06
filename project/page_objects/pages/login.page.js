@@ -1,42 +1,48 @@
 import BasePage from "../../../framework/elements/base.page.js";
-import { Button } from "../../../framework/elements/controls/button.control.js";
-import { Input } from "../../../framework/elements/controls/input.control.js";
-import { TextView } from "../../../framework/elements/controls/text.view.control.js";
-
-const LOGIN_EMAIL_INPUT = '#email';
-const LOGIN_PASSWORD_INPUT = '#password';
-const LOGIN_SUBMIT_BUTTON = 'button#loginButton';
-const ERROR_TEXT_ELEMENT = '.error';
+import  Button  from "../../../framework/elements/controls/button.control.js";
+import  Input  from "../../../framework/elements/controls/input.control.js";
+import  TextView from "../../../framework/elements/controls/text.view.control.js";
 
 class LoginPage extends BasePage{
 
-    async getEmailInput(){
-        return this.getElement(Input, LOGIN_EMAIL_INPUT, 'Login email input');
+    get emailInput(){
+        return new Input($('#email'), 'Login email input');
     }
-    async getPasswordInput(){
-        return this.getElement(Input, LOGIN_PASSWORD_INPUT, 'Login password input');
+    get passwordInput(){
+        return new Input($('#password'), 'Login password input')
     }
-    async getLoginSubmitButton(){
-        return this.getElement(Button, LOGIN_SUBMIT_BUTTON, 'Login submit button');
+    get loginSubmitButton(){
+        return new Button($('button#loginButton'),'Login submit button');
     }
-    async getErrorTextElement(){
-        return this.getElement(TextView, ERROR_TEXT_ELEMENT, 'Error login mesage element');
+    get errorTextElement(){
+        return new TextView($('.error'), 'Error login mesage element');
     }
+    get registrationButton(){
+        return new Button($('a[href="#/register"]'));
+    }
+
+    // async getBaseElement() {
+    //     return new HTMLElement($(baseElementLocator), "Name Base");
+    // }
 
     open(){
         super.open('/#/login');
     }
 
     async login(email, pass){
-        await this.getEmailInput().setValue(email);
-        await this.getPasswordInput().setValue(pass);
-        await this.getLoginSubmitButton().click();
+        await this.emailInput.setValue(email);
+        await this.passwordInput.setValue(pass);
+        await this.loginSubmitButton.click();
     }
     async isErrorTextElementExist(){
-        return this.getErrorTextElement().isExisting();
+        return this.errorTextElement.isExisting();
     }
     async getErrorText(){
-        return this.getErrorTextElement().getText();
+        return this.errorTextElement.getText();
+    }
+
+    async clickRegisterButton(){
+        await this.registrationButton.click();
     }
 
 }

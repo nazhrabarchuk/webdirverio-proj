@@ -1,25 +1,19 @@
 import { HeaderComponent } from "../components/header.component.js";
 import { SidebarComponent } from "../components/sidebar.component.js";
 import BasePage from "../../../framework/elements/base.page.js";
-import { Button } from "../../../framework/elements/controls/button.control.js";
-
-const CLOSE_MODAL_WINDOW_BUTTON = 'button.close-dialog';
+import  Button  from "../../../framework/elements/controls/button.control.js";
+import HtmlElement from "../../../framework/elements/element.wrapper.js";
 
  export class MainPage extends BasePage{
-
-   async getCloseDialogButton(){
-       return this.getElement(Button, CLOSE_MODAL_WINDOW_BUTTON, 'Close modal window');
-   }
-  
    open(){
        super.open('/#');
-    //    if(this.closeDialogButton.isExisting()){
-        this.clickCloseDialogButton();
-    //    }
+       if(await this.closeDialogButton.isExisting()){
+            await this.clickCloseDialogButton();
+       }
    }
 
    async clickCloseDialogButton(){
-      await this.getCloseDialogButton().click();
+      await this.closeDialogButton.click();
    }
    
    async getHeaderCo(){
@@ -28,7 +22,16 @@ const CLOSE_MODAL_WINDOW_BUTTON = 'button.close-dialog';
    async getSidebarCo(){
        return new SidebarComponent();
    }
-      
+
+   async getHtmlElementCo(){
+       return new HtmlElement();
+   }
+   
+   get closeDialogButton(){
+    return new Button($('button.close-dialog'), 'Close modal window');
+}
+
+     
 }
 
 export default new MainPage();

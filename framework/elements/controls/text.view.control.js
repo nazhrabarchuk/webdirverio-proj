@@ -1,6 +1,6 @@
-import { HtmlElement } from "../element.wrapper.js";
+import HtmlElement from "../element.wrapper.js";
 
-class TextView extends HtmlElement {
+
+export default class TextView extends HtmlElement {
 }
 
-export {TextView};

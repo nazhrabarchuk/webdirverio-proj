@@ -1,8 +1,11 @@
+import  Button  from "../../../framework/elements/controls/button.control.js";
+import  HtmlElement from "../../../framework/elements/element.wrapper.js";
 
-export class SidebarComponent{
+
+export class SidebarComponent extends HtmlElement{
     
     get aboutUsLink(){
-        return $('a[href="#/about"]')
+        return new Button($('a[href="#/about"]'), 'About us link')
     }
 
     async clickAboutUsLink(){

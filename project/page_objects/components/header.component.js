@@ -1,17 +1,18 @@
+import Button from "../../../framework/elements/controls/button.control.js";
 
 export class HeaderComponent{
 
     get accountButton(){
-        return $('#navbarAccount');
+        return new Button($('#navbarAccount'), 'Account button');
     }
     get loginButton(){
-        return $('#navbarLoginButton');
+        return new Button($('#navbarLoginButton'), 'Login Button');
     }
     get logoutButton(){
-        return $('#navbarLogoutButton');
+        return new Button($('#navbarLogoutButton'), 'Logout button');
     }
     get burgerButton(){
-        return $('button[aria-label="Open Sidenav"]')
+        return new Button($('button[aria-label="Open Sidenav"]'), 'Burger button');
     }
 
     async clickAccountButton(){

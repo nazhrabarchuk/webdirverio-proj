@@ -1,9 +1,12 @@
-import BasePage from "./base.page.js";
+import BasePage from "../../../framework/elements/base.page.js";
+import { Button } from "../../../framework/elements/controls/button.control.js";
+
+const SOCIAL_FACEBOOK_LINK_ELEMENT = $('a[href="https://www.facebook.com/owasp.juiceshop"]');
 
  export class AboutPage extends BasePage{
 
     get socialFacebookLink(){
-        return $('a[href="https://www.facebook.com/owasp.juiceshop"]');
+        return new Button(SOCIAL_FACEBOOK_LINK_ELEMENT, 'Social facebook link element')
     }
 
     open(){

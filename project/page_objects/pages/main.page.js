@@ -1,11 +1,14 @@
 import { HeaderComponent } from "../components/header.component.js";
 import { SidebarComponent } from "../components/sidebar.component.js";
-import BasePage from "./base.page.js";
+import BasePage from "../../../framework/elements/base.page.js";
+import { Button } from "../../../framework/elements/controls/button.control.js";
+
+const CLOSE_MODAL_WINDOW_BUTTON = $('button.close-dialog');
 
  export class MainPage extends BasePage{
 
    get closeDialogButton(){
-       return $('button.close-dialog');
+       return new Button(CLOSE_MODAL_WINDOW_BUTTON, 'Close modal window');
    }
   
    open(){

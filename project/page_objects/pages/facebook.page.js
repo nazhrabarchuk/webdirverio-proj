@@ -1,7 +1,7 @@
-import BasePage from "../../../framework/elements/base.page.js";
+import { BasePage } from "../../../framework/elements/base.page.js";
 import Button from "../../../framework/elements/controls/button.control.js";
 
-export class FacebookPage extends BasePage{
+ class FacebookPage extends BasePage{
 
     get profileLink(){
         return new Button($('a[href="https://www.facebook.com/owasp.juiceshop/"]'), 'Profile link element');

@@ -1,6 +1,6 @@
-import BasePage from "../../../framework/elements/base.page";
-import Dropdown from "../../../framework/elements/controls/dropdown.control";
-import Input from "../../../framework/elements/controls/input.control";
+import { BasePage } from "../../../framework/elements/base.page.js";
+import Dropdown from "../../../framework/elements/controls/dropdown.control.js";
+import Input from "../../../framework/elements/controls/input.control.js";
 
 class RegistrationPage extends BasePage{
 
@@ -17,12 +17,16 @@ class RegistrationPage extends BasePage{
         return new Input($('#securityAnswerControl'), 'Registration secutiry answer input');
     }
 
-    get quaestionDropdown(){
-        return new Dropdown($('#securityAnswerControl'), 'Dropdown question');
+    get questionDropdown(){
+        return new Dropdown($('[name="securityQuestion"]'), 'Security question');
     }
 
-    async selectAnswer(text){
-        await this.quaestionDropdown.select(text);
+    async selectQuestion(text){
+        await this.questionDropdown.select(text);
+    }
+
+    async setSecurityAnswer(value){
+        await this.registrationSecurityAnswerInput.setValue(value);
     }
 }
 

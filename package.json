@@ -18,6 +18,7 @@
     "@wdio/spec-reporter": "^7.16.9",
     "chai": "^4.3.4",
     "chromedriver": "^96.0.0",
+    "selenium-standalone": "^8.0.8",
     "wdio-chromedriver-service": "^7.2.2",
     "webdriverio": "^7.16.9"
   }

@@ -1,4 +1,4 @@
-import BasePage from "../../../framework/elements/base.page.js";
+import { BasePage } from "../../../framework/elements/base.page.js";
 import  Button  from "../../../framework/elements/controls/button.control.js";
 
  export class AboutPage extends BasePage{
@@ -8,7 +8,7 @@ import  Button  from "../../../framework/elements/controls/button.control.js";
     }
 
     open(){
-        super.open('#/about')
+        super.open('#/about');
     }
 
     async getSocialFacebookAttributeHrefLink(){

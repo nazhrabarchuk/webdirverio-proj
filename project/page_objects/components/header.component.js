@@ -1,6 +1,6 @@
 import Button from "../../../framework/elements/controls/button.control.js";
 
-export class HeaderComponent{
+export default class HeaderComponent{
 
     get accountButton(){
         return new Button($('#navbarAccount'), 'Account button');

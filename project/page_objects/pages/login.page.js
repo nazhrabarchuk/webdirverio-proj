@@ -1,4 +1,4 @@
-import BasePage from "../../../framework/elements/base.page.js";
+import { BasePage } from "../../../framework/elements/base.page.js";
 import  Button  from "../../../framework/elements/controls/button.control.js";
 import  Input  from "../../../framework/elements/controls/input.control.js";
 import  TextView from "../../../framework/elements/controls/text.view.control.js";

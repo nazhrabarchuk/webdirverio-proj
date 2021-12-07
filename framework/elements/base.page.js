@@ -1,11 +1,11 @@
-import {HtmlElement} from './../elements/element.wrapper.js';
-export default class BasePage {
+
+export class BasePage {
       async open(path){
         browser.url(path);
     }
 
-    async waitForScreenAvailable() {
-      await  this.getBaseElement().waitForDisplayed();
-  }
+  //   async waitForScreenAvailable() {
+  //     await  this.getBaseElement().waitForDisplayed();
+  // }
 }
 

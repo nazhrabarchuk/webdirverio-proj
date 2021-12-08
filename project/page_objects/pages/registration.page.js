@@ -1,6 +1,8 @@
 import { BasePage } from "../../../framework/elements/base.page.js";
 import Dropdown from "../../../framework/elements/controls/dropdown.control.js";
 import Input from "../../../framework/elements/controls/input.control.js";
+import Button from "../../../framework/elements/controls/button.control.js";
+import Randomstring from "randomstring";
 
 class RegistrationPage extends BasePage{
 
@@ -17,8 +19,20 @@ class RegistrationPage extends BasePage{
         return new Input($('#securityAnswerControl'), 'Registration secutiry answer input');
     }
 
+    get registrationSubmitButton(){
+        return new Button($('button#registerButton'), 'registration submit button');
+    }
+
     get questionDropdown(){
         return new Dropdown($('[name="securityQuestion"]'), 'Security question');
+    }
+
+    get randomData(){
+        return Randomstring.generate({
+            charset: 'alphabetic',
+            length: 7,
+            capitalization: 'lowercase'
+        })
     }
 
     async selectQuestion(text){
@@ -27,6 +41,18 @@ class RegistrationPage extends BasePage{
 
     async setSecurityAnswer(value){
         await this.registrationSecurityAnswerInput.setValue(value);
+    }
+
+    async registration(email, pass, repeatPass, securityQuestion, securityAnswer){
+        await this.registrationEmailInput.setValue(email);
+        await this.registrationPasswordInput.setValue(pass);
+        await this.registrationRepeatEmailInput.setValue(repeatPass);
+        await this.selectQuestion(securityQuestion);
+        await this.setSecurityAnswer(securityAnswer);
+
+        await browser.waitUntil(await this.waitForScreenAvailable('button#registerButton'));
+
+        await this.registrationSubmitButton.click();
     }
 }
 

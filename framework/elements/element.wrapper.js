@@ -8,13 +8,13 @@ export default class HtmlElement{
     // get elementName(){
     //     return this.elementName;
     // }
-
+    //
     // get wdioElementInstance() {
     //     return this.wdioElement;
     // }
 
     async getElement(elementType, elementLocator,elementName) {
-        return new elementType($(`${elementLocator}`), elementName);
+        return new elementType(`$(${elementLocator})`, elementName);
     }
 
     async isExisting() {
@@ -44,11 +44,11 @@ export default class HtmlElement{
     //         }
     //     }, options);
     // }
-    //   async waitForDisplayed(){
-    //     await waitFor(async () => {
-    //       return this.wdioElement.isDisplayed();
-    //   }, options);
-    //   }
+      async waitForDisplayed(){
+        await (async () => {
+          return this.wdioElement.isDisplayed();
+      });
+      }
 
  
 }

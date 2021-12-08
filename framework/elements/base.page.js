@@ -4,8 +4,14 @@ export class BasePage {
         browser.url(path);
     }
 
-  //   async waitForScreenAvailable() {
-  //     await  this.getBaseElement().waitForDisplayed();
-  // }
+    async waitForScreenAvailable(selectorOfElement) {
+          return async () =>{
+              const element = await $(selectorOfElement);
+              return await element.waitForDisplayed();
+          }
+
+  }
+
+
 }
 

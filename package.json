@@ -10,12 +10,14 @@
     "wdio-run": "wdio run wdio.conf.cjs"
   },
   "devDependencies": {
+    "@wdio/allure-reporter": "^7.16.10",
     "@wdio/cli": "^7.16.9",
     "@wdio/firefox-profile-service": "^7.16.6",
     "@wdio/local-runner": "^7.16.9",
     "@wdio/mocha-framework": "^7.16.6",
     "@wdio/selenium-standalone-service": "^7.16.6",
     "@wdio/spec-reporter": "^7.16.9",
+    "allure-commandline": "^2.13.8",
     "chai": "^4.3.4",
     "chromedriver": "^96.0.0",
     "randomstring": "^1.2.1",

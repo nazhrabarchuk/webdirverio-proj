@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1638964505649' stop='1638964511046'>
+    <name>Login testing</name>
+    <title>Login testing</title>
+    <test-cases>
+        <test-case start='1638964505650' status='passed' stop='1638964511045'>
+            <name>Negative: should display error login message</name>
+            <title>Negative: should display error login message</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-96.0.4664.93'/>
+                <parameter kind='argument' name='browser' value='chrome-96.0.4664.93'/>
+            </parameters>
+            <steps>
+                <step start='1638964505651' status='passed' stop='1638964505651'>
+                    <name>Open mainPage</name>
+                    <title>Open mainPage</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

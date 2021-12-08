@@ -1,3 +1,4 @@
+const allureReport = require("@wdio/allure-reporter").default;
 exports.config = {
     //
     // ====================
@@ -144,7 +145,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
 
 
     
@@ -164,12 +169,19 @@ exports.config = {
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
     // resolved to continue.
     async before(capabilities, specs) {
+        global.allure = allureReport;
         // setting default browser size
         await browser.setWindowSize(1980, 1024);
         console.log(`------- Browser name: ${capabilities.browserName}`)
     },
     afterSuite:(suite)=>{
         console.log(`'----- Suite "${suite.title}" running finished`);
+    },
+    afterTest:async (test, context,{error, result, duration, passed, retries}) =>{
+        if(!passed){
+            let screen = browser.takeScreenshot();
+            await allure.addAttachment(("ErrorScreenShot"), Buffer.from(screen, "base64"), "image/png")
+        }
     }
     /**
      * Gets executed once before all workers get launched.

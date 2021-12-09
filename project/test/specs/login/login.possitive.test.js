@@ -19,7 +19,7 @@ describe('Login testing', () => {
         await browser.pause(1000);
 
         await (await mainPage.getHeaderCo()).openAccountMenu();
-        await browser.pause(1000);
+        await browser.pause(2000);
 
         assert.isTrue(await (await mainPage.getHeaderCo()).isLogoutButtonExist());
     });

@@ -179,8 +179,8 @@ exports.config = {
     },
     afterTest:async (test, context,{error, result, duration, passed, retries}) =>{
         if(!passed){
-            let screen = browser.takeScreenshot();
-            await allure.addAttachment(("ErrorScreenShot"), Buffer.from(screen, "base64"), "image/png")
+            let screen = await browser.takeScreenshot();
+            await allure.addAttachment( ("ErrorScreenShot"), Buffer.from(screen, "base64"), "image/png")
         }
     }
     /**

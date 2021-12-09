@@ -16,7 +16,7 @@ describe('Login testing', ()=>{
 
     it('Negative: should display error login message', async () => {
     await loginPage.login(EMAIL_WRONG_TEXT, PASSWORD_WRONG_TEXT);
-    await browser.pause(1000);
+    await browser.pause(2000);
 
     expect(await loginPage.isErrorTextElementExist()).to.be.true;
     expect(await loginPage.getErrorText()).to.equal(ERROR_TEXT);

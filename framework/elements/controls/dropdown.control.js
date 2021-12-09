@@ -9,7 +9,7 @@ export default class Dropdown extends HtmlElement {
 
     async select(option){
         await this.wdioElement.click();
-        await new Button($(`//*[@class="mat-option-text"][contains(text(),"${option}")]`), `Question "${option}"`).click();
+        await new Button(await $(`//*[@class="mat-option-text"][contains(text(),"${option}")]`), `Question "${option}"`).click();
     }
 }
 

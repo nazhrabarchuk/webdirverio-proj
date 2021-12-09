@@ -18,7 +18,7 @@ export default class HtmlElement{
     }
 
     async isExisting() {
-        await this.waitForDisplayed();
+        // await this.waitForDisplayed();
        return await this.wdioElement.isExisting();
     }
     

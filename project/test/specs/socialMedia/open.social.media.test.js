@@ -4,7 +4,7 @@ import facebookPage from "../../../page_objects/pages/facebook.page.js";
 import mainPage from "../../../page_objects/pages/main.page.js";
 import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js";
 
-describe('Open social Faebook testing', () => {
+describe('Open social Faсebook testing', () => {
     before(async () => {
         allureWrapper.addAllureDescription('Positive: Open facebook page test description');
         await mainPage.open();

@@ -4,6 +4,7 @@ import Button  from "../../../framework/elements/controls/button.control.js";
 import HtmlElement from "../../../framework/elements/element.wrapper.js";
 import { BasePage } from "../../../framework/elements/base.page.js";
 import allureReporter from '@wdio/allure-reporter';
+import AllureReporter from "@wdio/allure-reporter";
 
 class MainPage extends BasePage{
 
@@ -16,9 +17,8 @@ class MainPage extends BasePage{
       await this.closeDialogButton.click();
    }
 
-
-   async open(){
-       allure.addStep("Open mainPage");
+async open(){
+       allure.addStep("`Open Main page");
        super.open('/#');
         // if(await this.closeDialogButton.isExisting()){
             await this.clickCloseDialogButton();

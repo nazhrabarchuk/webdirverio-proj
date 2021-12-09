@@ -18,7 +18,8 @@ export default class HtmlElement{
     }
 
     async isExisting() {
-        return await this.wdioElement.isExisting();
+        await this.waitForDisplayed();
+       return await this.wdioElement.isExisting();
     }
     
     async click() {

@@ -16,6 +16,7 @@ import  Button  from "../../../framework/elements/controls/button.control.js";
     }
 
     async goToSocialFacebook(){
+        allure.addStep("`Open Facebook page");
         await this.socialFacebookLink.click();
     }
 }

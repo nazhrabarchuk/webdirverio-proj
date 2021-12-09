@@ -7,7 +7,8 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "wdio-run": "wdio run wdio.conf.cjs"
+    "wdio-run": "wdio run wdio.conf.cjs",
+    "allure-report": "allure generate allure-results -o allure-report --clean && allure open"
   },
   "devDependencies": {
     "@wdio/allure-reporter": "^7.16.10",

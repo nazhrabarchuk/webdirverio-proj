@@ -35,6 +35,7 @@ export default class HeaderComponent{
     }
  
     async navigateToLogin(){
+        allure.addStep("Navigate to login form");
         await this.openAccountMenu();
         await this.clickLoginButton();
     }

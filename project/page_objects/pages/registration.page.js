@@ -44,6 +44,7 @@ class RegistrationPage extends BasePage{
     }
 
     async registration(email, pass, repeatPass, securityQuestion, securityAnswer){
+        allure.addStep("Set registration credentials");
         await this.registrationEmailInput.setValue(email);
         await this.registrationPasswordInput.setValue(pass);
         await this.registrationRepeatEmailInput.setValue(repeatPass);

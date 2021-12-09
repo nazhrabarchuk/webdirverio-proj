@@ -1,0 +1,69 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Registration testing",
+    "children" : [ {
+      "name" : "Positive: should register with valid credentials",
+      "uid" : "4099fea8bb94a4f2",
+      "parentUid" : "9e4ffe71eafaea8821bec9315e842709",
+      "status" : "broken",
+      "time" : {
+        "start" : 1639065225272,
+        "stop" : 1639065240385,
+        "duration" : 15113
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-96.0.4664.93" ]
+    } ],
+    "uid" : "9e4ffe71eafaea8821bec9315e842709"
+  }, {
+    "name" : "Login testing",
+    "children" : [ {
+      "name" : "Negative: should display error login message",
+      "uid" : "2499cac33621219d",
+      "parentUid" : "f4b07889bbc65f7b0b91277384e5029a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1639065225323,
+        "stop" : 1639065231803,
+        "duration" : 6480
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-96.0.4664.93" ]
+    }, {
+      "name" : "Positive: should login with valid credentials",
+      "uid" : "e91b747ea9b256d1",
+      "parentUid" : "f4b07889bbc65f7b0b91277384e5029a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1639065225386,
+        "stop" : 1639065232963,
+        "duration" : 7577
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-96.0.4664.93" ]
+    } ],
+    "uid" : "f4b07889bbc65f7b0b91277384e5029a"
+  }, {
+    "name" : "Open social Faсebook testing",
+    "children" : [ {
+      "name" : "Positive: should switch to Facebook page",
+      "uid" : "84241333f7f59ac6",
+      "parentUid" : "22887f0818b1d48a326e6f090f3db5c4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1639065225544,
+        "stop" : 1639065236154,
+        "duration" : 10610
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "chrome-96.0.4664.93" ]
+    } ],
+    "uid" : "22887f0818b1d48a326e6f090f3db5c4"
+  } ]
+}

@@ -7,8 +7,6 @@ import superagent from "superagent";
 const baseUrl = 'http://localhost:3000/';
 const EMAIL_DEFAULT_TEXT = 'test9@test.com';
 const PASSWORD_DEFAULT_TEXT = 'testtest';
-const TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MjMsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJ0ZXN0M0B0ZXN0LmNvbSIsInBhc3N3b3JkIjoiMDVhNjcxYzY2YWVmZWExMjRjYzA4Yjc2ZWE2ZDMwYmIiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoiMTI3LjAuMC4xIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjEtMTItMTAgMDk6MjU6MjAuNTg4ICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjEtMTItMTAgMDk6MzA6MjIuODU4ICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTYzOTEyODY0MywiZXhwIjoxNjM5MTQ2NjQzfQ.e1xCJL4x2CbugUEx6HxoljHPgKcx35SrsVkMscW3jOatQwat3I2-A-utENHaDNUDawkqG26mV7uUhm-9TEeSd1ODv6TQOryMgvH6TJwHgQqaTxTcoGLL9uX8vtexxIZ7UiDBiLYTIvYAA9G4KCPh1lbezfX4d5ksqUSInt_sdRE"
-
 describe('Login testing', () => {
 
     before(async () => {
@@ -42,9 +40,19 @@ describe('Login testing', () => {
     it('Positive: should login with valid credentials', async () => {
         await loginPage.login(EMAIL_DEFAULT_TEXT, PASSWORD_DEFAULT_TEXT);
         await browser.pause(1000);
+        console.log('******* TOKEN LOCAL STORAGE ******');
+
+
+        let token = await browser.execute(function (key) {
+            return this.localStorage.getItem(key)
+        }, 'token')
+
+        console.log(`Token CURVA ${token}`);
 
         await (await mainPage.getHeaderCo()).openAccountMenu();
         await browser.pause(2000);
+
+
 
         assert.isTrue(await (await mainPage.getHeaderCo()).isLogoutButtonExist());
     });

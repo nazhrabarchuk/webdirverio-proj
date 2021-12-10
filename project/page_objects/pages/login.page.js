@@ -15,10 +15,10 @@ class LoginPage extends BasePage{
         return new Button($('button#loginButton'),'Login submit button');
     }
     get errorTextElement(){
-        return new TextView($('.error'), 'Error login mesage element');
+        return new TextView($('.error'), 'Error login message element');
     }
     get registrationButton(){
-        return new Button($('a[href="#/register"]'));
+        return new Button($('a[href="#/register"]'), 'Registration button');
     }
 
     // async getBaseElement() {

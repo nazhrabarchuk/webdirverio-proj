@@ -22,7 +22,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './project/test/specs/**/*.js'
+        './project/test/specs/**/login.possitive.test.js'
     ],
     // Patterns to exclude.
     exclude: [

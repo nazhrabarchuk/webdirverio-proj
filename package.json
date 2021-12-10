@@ -23,6 +23,7 @@
     "chromedriver": "^96.0.0",
     "randomstring": "^1.2.1",
     "selenium-standalone": "^8.0.8",
+    "superagent": "^6.1.0",
     "wdio-chromedriver-service": "^7.2.2",
     "webdriverio": "^7.16.9"
   }

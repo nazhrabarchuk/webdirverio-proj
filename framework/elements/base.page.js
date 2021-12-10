@@ -1,7 +1,7 @@
 
 export class BasePage {
       async open(path){
-        browser.url(path);
+        await browser.url(path);
     }
 
     async waitForScreenAvailable(selectorOfElement) {

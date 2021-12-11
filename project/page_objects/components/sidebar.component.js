@@ -1,8 +1,8 @@
 import  Button  from "../../../framework/elements/controls/button.control.js";
-import  HtmlElement from "../../../framework/elements/element.wrapper.js";
+import * as waits from "../../../framework/helpers/waits.js";
 
 
-export default class SidebarComponent extends HtmlElement{
+export default class SidebarComponent{
     
     get aboutUsLink(){
         return new Button($('a[href="#/about"]'), 'About us link')
@@ -10,5 +10,10 @@ export default class SidebarComponent extends HtmlElement{
 
     async clickAboutUsLink(){
         await this.aboutUsLink.click();
+    }
+
+    async waitForComponentAvailable() {
+        await waits.waitForDisplayed(await this.aboutUsLink);
+        return this;
     }
 }

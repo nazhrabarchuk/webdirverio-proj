@@ -12,11 +12,12 @@ describe('Login testing', ()=>{
         allureWrapper.addAllureDescription('Negative: login test description');
         await mainpage.open();
         await (await mainpage.getHeaderCo()).navigateToLogin();
+        await loginPage.waitForPageAvailable();
     });
 
     it('Negative: should display error login message', async () => {
     await loginPage.login(EMAIL_WRONG_TEXT, PASSWORD_WRONG_TEXT);
-    await browser.pause(2000);
+    await loginPage.waitForErrorTextExisting();
 
     expect(await loginPage.isErrorTextElementExist()).to.be.true;
     expect(await loginPage.getErrorText()).to.equal(ERROR_TEXT);

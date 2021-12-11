@@ -1,4 +1,5 @@
 import Button from "../../../framework/elements/controls/button.control.js";
+import * as waits from "../../../framework/helpers/waits.js";
 
 export default class HeaderComponent{
 
@@ -39,5 +40,6 @@ export default class HeaderComponent{
         await this.openAccountMenu();
         await this.clickLoginButton();
     }
+
 
 }

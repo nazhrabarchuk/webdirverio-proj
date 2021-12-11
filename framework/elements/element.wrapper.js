@@ -36,15 +36,6 @@ export default class HtmlElement{
         return this.wdioElement.getAttribute(atr);
     }
 
-    // async waitFor(condition, options) {
-    //     return browser.waitUntil(async () => {
-    //         try {
-    //             return condition();
-    //         } catch (err) {
-    //             return false;
-    //         }
-    //     }, options);
-    // }
       async waitForDisplayed(){
         await (async () => {
           return this.wdioElement.isDisplayed();

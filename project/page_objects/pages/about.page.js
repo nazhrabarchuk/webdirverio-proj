@@ -1,5 +1,6 @@
 import { BasePage } from "../../../framework/elements/base.page.js";
 import  Button  from "../../../framework/elements/controls/button.control.js";
+import * as waits from "../../../framework/helpers/waits.js"
 
  export class AboutPage extends BasePage{
 
@@ -19,5 +20,9 @@ import  Button  from "../../../framework/elements/controls/button.control.js";
         allure.addStep("`Open Facebook page");
         await this.socialFacebookLink.click();
     }
+     async waitForPageAvailable() {
+         await waits.waitForDisplayed(await this.socialFacebookLink);
+         return this;
+     }
 }
 export default new AboutPage();

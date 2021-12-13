@@ -3,6 +3,9 @@ import TextView from "../../../framework/elements/controls/text.view.control.js"
 import Button from "../../../framework/elements/controls/button.control.js";
 import * as waits from "../../../framework/helpers/waits.js";
 import BasketAddressComponent from "../components/basket/basket.address.component.js";
+import BasketDeliveryComponent from "../components/basket/basket.delivery.component.js";
+import BasketPaymentComponent from "../components/basket/basket.payment.component.js";
+import BasketSummaryComponent from "../components/basket/basket.summary.component.js";
 
 
 class BasketPage extends BasePage {
@@ -35,8 +38,17 @@ class BasketPage extends BasePage {
         await waits.waitForDisplayed(await this.checkoutButton);
     }
 
-    async getBasketAddressComponent(){
+    async getBasketAddressCo(){
         return new BasketAddressComponent();
+    }
+    async getBasketDeliveryCo(){
+        return new BasketDeliveryComponent();
+    }
+    async getBasketPaymentCo(){
+        return new BasketPaymentComponent();
+    }
+    async getBasketSummaryCo(){
+        return new BasketSummaryComponent();
     }
 }
 

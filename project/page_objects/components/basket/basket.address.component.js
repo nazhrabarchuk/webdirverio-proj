@@ -17,31 +17,31 @@ export default class BasketAddressComponent {
     }
 
     get addressCountryInput() {
-        return new Input($('#mat-input-1'), 'Add new address country input');
+        return new Input($('input[data-placeholder="Please provide a country."]'), 'Add new address country input');
     }
 
     get addressNameInput() {
-        return new Input($('#mat-input-2'), 'Add new address name input');
+        return new Input($('input[data-placeholder="Please provide a name."]'), 'Add new address name input');
     }
 
     get addressMobileNumberInput() {
-        return new Input($('#mat-input-3'), 'Add new address mobile number input');
+        return new Input($('input[data-placeholder="Please provide a mobile number."]'), 'Add new address mobile number input');
     }
 
     get addressZipInput() {
-        return new Input($('#mat-input-4'), 'Add new address zip input');
+        return new Input($('input[data-placeholder="Please provide a ZIP code."]'), 'Add new address zip input');
     }
 
     get addressInput() {
-        return new Input($('#mat-input-5'), 'Add new address input');
+        return new Input($('#address'), 'Add new address input');
     }
 
     get addressCityInput() {
-        return new Input($('#mat-input-6'), 'Add new address city input');
+        return new Input($('input[data-placeholder="Please provide a city."]'), 'Add new address city input');
     }
 
     get addressStateInput() {
-        return new Input($('#mat-input-7'), 'Add new address state input');
+        return new Input($('input[data-placeholder="Please provide a state."]'), 'Add new address state input');
     }
 
     get addressSubmitButton() {
@@ -59,10 +59,15 @@ export default class BasketAddressComponent {
         await this.continueButton.click();
     }
 
+    async waitForComponentAvailable() {
+        await waits.waitForDisplayed(await this.addAddressButton);
+    }
+
     async addNewAddress(country, name, mobileNumber, zip, address, city, state) {
-        if (typeof mobileNumber !== 'number' || mobileNumber.length < 6) {
+        if (typeof mobileNumber !== 'number' || mobileNumber.length < 7) {
             throw Error(`Argument ${mobileNumber} must be a number`);
         }
+        await this.clickAddressButton();
         await this.addressCountryInput.setValue(country);
         await this.addressNameInput.setValue(name);
         await this.addressMobileNumberInput.setValue(mobileNumber);
@@ -79,7 +84,4 @@ export default class BasketAddressComponent {
         await this.clickContinueButton();
     }
 
-    async waitForComponentAvailable() {
-        await waits.waitForDisplayed(await this.addAddressButton);
-    }
 }

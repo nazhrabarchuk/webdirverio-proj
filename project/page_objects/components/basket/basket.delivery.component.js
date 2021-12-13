@@ -1,9 +1,10 @@
 import Button from "../../../../framework/elements/controls/button.control.js";
+import * as waits from "../../../../framework/helpers/waits.js";
 
 export default class BasketDeliveryComponent{
 
     get standardDeliveryButton(){
-        return new Button($('label[for=mat-radio-42-input]'), 'Standard delivery button')
+        return new Button($('.mat-row.cdk-row:last-child'), 'Standard delivery button')
     }
 
     get continueButton(){
@@ -16,6 +17,11 @@ export default class BasketDeliveryComponent{
 
     async clickContinueButton(){
         await this.continueButton.click();
+    }
+
+    async waitForPageAvailable() {
+        await waits.waitForDisplayed(await this.standardDeliveryButton);
+        return this;
     }
 
     async chooseDelivery(){

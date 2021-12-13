@@ -12,6 +12,9 @@ export default class HtmlElement{
     // get wdioElementInstance() {
     //     return this.wdioElement;
     // }
+    get locator(){
+        return this.wdioElement.selector;
+    }
 
     async getElement(elementType, elementLocator,elementName) {
         return new elementType(`$(${elementLocator})`, elementName);

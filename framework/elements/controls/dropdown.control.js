@@ -13,8 +13,8 @@ export default class Dropdown extends HtmlElement {
 
     async selectItemByLabelValue(itemText) {
         await this.open();
-        const locator = `${this.locator} option[label='${itemText}']`;
-        await (new Button(this, await $(locator), `Item ${itemText}`)).click();
+        const locator = `${await this.locator}/option[@value='${itemText}']`;
+        await (new Button(await $(locator), `Item ${itemText}`)).click();
     }
 }
 

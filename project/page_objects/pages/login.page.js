@@ -1,24 +1,28 @@
-import { BasePage } from "../../../framework/elements/base.page.js";
-import  Button  from "../../../framework/elements/controls/button.control.js";
-import  Input  from "../../../framework/elements/controls/input.control.js";
-import  TextView from "../../../framework/elements/controls/text.view.control.js";
+import {BasePage} from "../../../framework/elements/base.page.js";
+import Button from "../../../framework/elements/controls/button.control.js";
+import Input from "../../../framework/elements/controls/input.control.js";
+import TextView from "../../../framework/elements/controls/text.view.control.js";
 import * as waits from "../../../framework/helpers/waits.js";
 
-class LoginPage extends BasePage{
+class LoginPage extends BasePage {
 
-    get emailInput(){
+    get emailInput() {
         return new Input($('#email'), 'Login email input');
     }
-    get passwordInput(){
+
+    get passwordInput() {
         return new Input($('#password'), 'Login password input')
     }
-    get loginSubmitButton(){
-        return new Button($('button#loginButton'),'Login submit button');
+
+    get loginSubmitButton() {
+        return new Button($('button#loginButton'), 'Login submit button');
     }
-    get errorTextElement(){
+
+    get errorTextElement() {
         return new TextView($('.error'), 'Error login message element');
     }
-    get registrationButton(){
+
+    get registrationButton() {
         return new Button($('a[href="#/register"]'), 'Registration button');
     }
 
@@ -26,24 +30,26 @@ class LoginPage extends BasePage{
     //     return new HTMLElement($(baseElementLocator), "Name Base");
     // }
 
-    open(){
+    open() {
         super.open('/#/login');
     }
 
-    async login(email, pass){
+    async login(email, pass) {
         allure.addStep("Set login credentials");
         await this.emailInput.setValue(email);
         await this.passwordInput.setValue(pass);
         await this.loginSubmitButton.click();
     }
-    async isErrorTextElementExist(){
+
+    async isErrorTextElementExist() {
         return this.errorTextElement.isExisting();
     }
-    async getErrorText(){
+
+    async getErrorText() {
         return this.errorTextElement.getText();
     }
 
-    async clickRegisterButton(){
+    async clickRegisterButton() {
         await this.registrationButton.click();
     }
 
@@ -51,9 +57,11 @@ class LoginPage extends BasePage{
         await waits.waitForDisplayed(await this.emailInput);
         return this;
     }
-    async waitForErrorTextExisting(){
+
+    async waitForErrorTextExisting() {
         await waits.waitForDisplayed(await this.errorTextElement);
     }
 
 }
+
 export default new LoginPage();

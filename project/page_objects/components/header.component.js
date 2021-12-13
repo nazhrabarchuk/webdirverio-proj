@@ -1,5 +1,4 @@
 import Button from "../../../framework/elements/controls/button.control.js";
-import * as waits from "../../../framework/helpers/waits.js";
 
 export default class HeaderComponent{
 
@@ -12,8 +11,14 @@ export default class HeaderComponent{
     get logoutButton(){
         return new Button($('#navbarLogoutButton'), 'Logout button');
     }
+    get userProfileButton(){
+        return new Button($('button[aria-label="Go to user profile"]'), 'Go to user profile button')
+    }
     get burgerButton(){
         return new Button($('button[aria-label="Open Sidenav"]'), 'Burger button');
+    }
+    get basketButton(){
+        return new Button($('button[routerlink="/basket"]'), 'Basket button');
     }
 
     async clickAccountButton(){
@@ -25,6 +30,14 @@ export default class HeaderComponent{
 
     async clickBurgerButton(){
         await this.burgerButton.click();
+    }
+
+    async clickUserProfileButton(){
+        await this.userProfileButton.click();
+    }
+
+    async clickBasketButton(){
+        await this.basketButton.click();
     }
 
      async isLogoutButtonExist(){
@@ -39,6 +52,12 @@ export default class HeaderComponent{
         allure.addStep("Navigate to login form");
         await this.openAccountMenu();
         await this.clickLoginButton();
+    }
+
+    async navigateToUserProfile(){
+        allure.addStep("Navigate to user profile page");
+        await this.openAccountMenu();
+        await this.clickUserProfileButton();
     }
 
 

@@ -4,6 +4,7 @@ import Button from "../../../framework/elements/controls/button.control.js";
 import HtmlElement from "../../../framework/elements/element.wrapper.js";
 import {BasePage} from "../../../framework/elements/base.page.js";
 import * as waits from "../../../framework/helpers/waits.js"
+import ProductsComponent from "../components/products.component.js";
 
 class MainPage extends BasePage {
 
@@ -34,6 +35,10 @@ class MainPage extends BasePage {
 
     async getHtmlElementCo() {
         return new HtmlElement();
+    }
+
+    async getProductsComponent(){
+        return new ProductsComponent();
     }
 
     async waitForPageAvailable() {

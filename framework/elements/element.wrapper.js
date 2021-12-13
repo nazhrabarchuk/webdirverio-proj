@@ -21,6 +21,12 @@ export default class HtmlElement{
         // await this.waitForDisplayed();
        return await this.wdioElement.isExisting();
     }
+    async isEnabled() {
+        return await this.wdioElement.isEnabled();
+    }
+    async isDisplayed() {
+        return await this.wdioElement.isDisplayed();
+    }
     
     async click() {
         console.log( `Click on "${this.elementName}"`);  
@@ -30,6 +36,7 @@ export default class HtmlElement{
     async getText() {
         return this.wdioElement.getText();
     }
+
 
     async getAttribute(atr){
         console.log( `Get attribute: ${atr} of "${this.elementName}"`);  

@@ -22,7 +22,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './project/test/specs/**/*.js'
+        './project/test/specs/**/basket.purchase.flow.test.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -58,7 +58,7 @@ exports.config = {
         {
             browserName: 'chrome',
             acceptInsecureCerts: true,
-            maxInstances: 5,
+            maxInstances: 1,
           },
         //   {
         //     browserName: 'firefox',

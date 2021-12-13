@@ -1,7 +1,7 @@
 import loginPage from "../../../page_objects/pages/login.page.js";
 import mainPage from "../../../page_objects/pages/main.page.js";
 import registrationPage from "../../../page_objects/pages/registration.page.js";
-import { assert, expect  } from "chai";
+import { expect  } from "chai";
 import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js";
 
 const REGISTRATION_EMAIL_TEXT = `${registrationPage.randomData}@test.com`
@@ -10,14 +10,12 @@ const SECURITY_QUESTION_TEXT = "Mother\'s maiden name?";
 const SECURITY_ANSWER_TEXT = "Mothers name";
 
 describe('Registration testing', () => {
-    before(async () => {
+
+    it('Positive: should register with valid credentials', async () => {
         allureWrapper.addAllureDescription('Positive: Registration test description');
         await mainPage.open();
         await (await mainPage.getHeaderCo()).navigateToLogin();
         await loginPage.waitForPageAvailable();
-    });
-
-    it('Positive: should register with valid credentials', async () => {
         await loginPage.clickRegisterButton();
 
         await registrationPage.registration(

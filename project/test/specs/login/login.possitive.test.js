@@ -5,7 +5,7 @@ import * as allureWrapper from '../../../../framework/helpers/allure.wrapper.js'
 import superagent from "superagent";
 
 const baseUrl = 'http://localhost:3000/';
-const EMAIL_DEFAULT_TEXT = 'test9@test.com';
+const EMAIL_DEFAULT_TEXT = 'test2@test.com';
 const PASSWORD_DEFAULT_TEXT = 'testtest';
 describe('Login testing', () => {
 
@@ -18,32 +18,31 @@ describe('Login testing', () => {
     it('API POST: Create user', async () => {
         const responseGetSecurityQuestion = await superagent.get(baseUrl + 'api/SecurityQuestions/?id=1');
         const responseSecurityQuestionStringify = JSON.stringify(responseGetSecurityQuestion.body);
-        console.log('********* SEC QUEST ********', JSON.stringify(responseGetSecurityQuestion.body))
+
         const requestBody = {
-            "email": "test7@test.com", "password": "testtest", "passwordRepeat": "testtest",
+            "email": "test2@test.com", "password": "testtest", "passwordRepeat": "testtest",
             "securityQuestion": responseSecurityQuestionStringify,
             "securityAnswer": "test"
         };
+
         const response = await superagent.post(baseUrl + 'api/Users/', requestBody);
-        console.log('****Response****', JSON.stringify(response));
-        console.log('****Status Code****', response.statusCode);
+
         expect(response.statusCode).to.equal(201);
     });
 
 
     it('Positive: should login with valid credentials', async () => {
         await loginPage.login(EMAIL_DEFAULT_TEXT, PASSWORD_DEFAULT_TEXT);
-        // await browser.pause(1000);
+
         await mainPage.waitForPageAvailable();
 
-        console.log('******* TOKEN LOCAL STORAGE ******');
-        let token = await browser.execute( (key) => {
+        global.token = await browser.execute( (key) => {
             return this.localStorage.getItem(key)
         }, 'token')
 
         await (await mainPage.getHeaderCo()).openAccountMenu();
-        // await browser.pause(2000);
-        await mainPage.waitForPageAvailable();
+
+        await browser.pause(2000);
 
         assert.isTrue(await (await mainPage.getHeaderCo()).isLogoutButtonExist());
     });

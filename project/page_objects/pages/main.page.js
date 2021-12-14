@@ -13,8 +13,16 @@ class MainPage extends BasePage {
         return new Button($('button.close-dialog'), 'Close modal window');
     }
 
+    get cookieButton() {
+        return new Button($('a[aria-label="dismiss cookie message"]'), 'Cookie modal');
+    }
+
     async clickCloseDialogButton() {
         await this.closeDialogButton.click();
+    }
+
+    async closeCookieButton() {
+        await this.cookieButton.click();
     }
 
     async open() {
@@ -22,6 +30,9 @@ class MainPage extends BasePage {
         super.open('/#');
         if (await this.closeDialogButton.isExisting()) {
             await this.clickCloseDialogButton();
+        }
+        if (await this.cookieButton.isExisting()) {
+            await this.closeCookieButton();
         }
     }
 
@@ -37,7 +48,7 @@ class MainPage extends BasePage {
         return new HtmlElement();
     }
 
-    async getProductsComponent(){
+    async getProductsComponent() {
         return new ProductsComponent();
     }
 

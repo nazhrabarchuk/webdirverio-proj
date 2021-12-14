@@ -2,7 +2,25 @@ import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js"
 import mainPage from "../../../page_objects/pages/main.page.js";
 import loginPage from "../../../page_objects/pages/login.page.js";
 import basketPage from "../../../page_objects/pages/basket.page.js";
+import {assert, expect} from "chai";
 
+const CONFIRMATION_TEXT = 'Thank you for your purchase!';
+
+const ADDRESS_DATA = {
+    country: 'Country',
+    name: 'Name',
+    mobileNumber: 1234567,
+    zip: 'zip',
+    address: 'Address',
+    city: 'City',
+    state: 'State'
+}
+const CARD_DATA = {
+    name: 'Name 1',
+    number: 1234567891234567,
+    month: 1,
+    year: 2080
+}
 
 describe('Purchase flow test', () => {
     before(async () => {
@@ -23,15 +41,14 @@ describe('Purchase flow test', () => {
         await (await basketPage.getBasketAddressCo()).waitForComponentAvailable();
 
         await ((await basketPage.getBasketAddressCo()).addNewAddress(
-            'Country',
-            'Name',
-            1234567,
-            'zip',
-            'Address',
-            'City',
-            'State'
+            ADDRESS_DATA.country,
+            ADDRESS_DATA.name,
+            ADDRESS_DATA.mobileNumber,
+            ADDRESS_DATA.zip,
+            ADDRESS_DATA.address,
+            ADDRESS_DATA.city,
+            ADDRESS_DATA.state
         ));
-
         await (await basketPage.getBasketAddressCo()).waitForComponentAvailable();
 
         await (await basketPage.getBasketAddressCo()).chooseAddress();
@@ -43,10 +60,12 @@ describe('Purchase flow test', () => {
         await (await basketPage.getBasketPaymentCo()).waitForComponentsAvailable();
 
         await (await basketPage.getBasketPaymentCo()).createNewCard(
-            'Name 1',
-            1234567891234567,
-            1,2080
+            CARD_DATA.name,
+            CARD_DATA.number,
+            CARD_DATA.month,
+            CARD_DATA.year
         )
+
         await (await basketPage.getBasketPaymentCo()).waitForComponentsAvailable();
 
         await (await basketPage.getBasketPaymentCo()).chooseCard();
@@ -55,8 +74,9 @@ describe('Purchase flow test', () => {
 
         await (await basketPage.getBasketSummaryCo()).clickCheckoutButton();
 
-        await browser.pause(2000);
+        await (await basketPage.getBasketSummaryCo()).waitForSummaryMessageAvailable();
 
         assert.isTrue(await (await basketPage.getBasketSummaryCo()).isConfirmationTextDisplayed());
+        expect(await (await basketPage.getBasketSummaryCo()).getConfirmationText()).is.equal(CONFIRMATION_TEXT);
     });
 })

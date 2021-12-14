@@ -6,7 +6,7 @@ import * as waits from "../../../../framework/helpers/waits.js";
 
 export default class BasketPaymentComponent {
     get newCardElement() {
-        return new TextView($('.mat-row.cdk-row:last-child label'), 'Add new card slide down element');
+        return new TextView($('.mat-content:first-child'), 'Add new card slide down element');
     }
 
     get newCardNameInput() {
@@ -26,7 +26,7 @@ export default class BasketPaymentComponent {
     }
 
     get itemCardButton() {
-        return new Button($('label[for="mat-radio-43-input"]'), 'Choose item card button')
+        return new Button($('.mat-row.cdk-row:last-child label'), 'Choose item card button')
     }
 
     get submitButton() {
@@ -54,23 +54,29 @@ export default class BasketPaymentComponent {
         return this;
     }
 
+    async isItemCardExisting() {
+        return await this.itemCardButton.isExisting();
+    }
+
     async createNewCard(name, number, month, year) {
-        // if(typeof number !== 'number' || number.split().length !== 16){
-        //     throw Error(`Argument ${number} is not correct. Type must be a number & length equal 16`)
-        // }
-        await this.newCardElement.click();
+        allure.addStep("Create new card item");
+        if (!(await this.isItemCardExisting())) {
+            await this.newCardElement.click();
 
-        await this.newCardNameInput.setValue(name);
-        await this.newCardNumberInput.setValue(number);
-        await this.newCardExpiryMonthDropdown.selectItemByLabelValue(month);
-        await this.newCardExpiryYearDropdown.selectItemByLabelValue(year);
+            await this.newCardNameInput.setValue(name);
+            await this.newCardNumberInput.setValue(number);
+            await this.newCardExpiryMonthDropdown.selectItemByLabelValue(month);
+            await this.newCardExpiryYearDropdown.selectItemByLabelValue(year);
 
-        await this.submitButton.click();
+            await waits.waitForDisplayed(await this.submitButton);
+            await this.submitButton.click();
+        }
     }
 
     async chooseCard() {
         await this.clickItemCardButton();
+
+        await waits.waitForDisplayed(await this.continueButton);
         await this.clickContinueButton();
-    //    TODO: click to continue button & check label payment items !!!
     }
 }

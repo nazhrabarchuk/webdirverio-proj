@@ -30,7 +30,9 @@ export default class HtmlElement{
     async isDisplayed() {
         return await this.wdioElement.isDisplayed();
     }
-    
+    async scrollIntoView(scrollIntoViewOptions){
+        await this.wdioElement.scrollIntoView(scrollIntoViewOptions);
+    }
     async click() {
         console.log( `Click on "${this.elementName}"`);  
         await this.wdioElement.click();

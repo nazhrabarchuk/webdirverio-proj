@@ -55,8 +55,14 @@ export default class BasketAddressComponent {
     async clickItemAddressButton() {
         await this.itemAddressButton.click();
     }
-    async clickContinueButton(){
+
+    async clickContinueButton() {
+        await this.continueButton.scrollIntoView();
         await this.continueButton.click();
+    }
+
+    async isItemAddressExisting() {
+        return await this.itemAddressButton.isExisting();
     }
 
     async waitForComponentAvailable() {
@@ -64,22 +70,24 @@ export default class BasketAddressComponent {
     }
 
     async addNewAddress(country, name, mobileNumber, zip, address, city, state) {
-        if (typeof mobileNumber !== 'number' || mobileNumber.length < 7) {
-            throw Error(`Argument ${mobileNumber} must be a number`);
-        }
-        await this.clickAddressButton();
-        await this.addressCountryInput.setValue(country);
-        await this.addressNameInput.setValue(name);
-        await this.addressMobileNumberInput.setValue(mobileNumber);
-        await this.addressZipInput.setValue(zip);
-        await this.addressInput.setValue(address);
-        await this.addressCityInput.setValue(city);
-        await this.addressStateInput.setValue(state);
+        allure.addStep("Add new address item");
+        if (!(await this.isItemAddressExisting())) {
+            await this.clickAddressButton();
 
-        await this.addressSubmitButton.click();
+            await this.addressCountryInput.setValue(country);
+            await this.addressNameInput.setValue(name);
+            await this.addressMobileNumberInput.setValue(mobileNumber);
+            await this.addressZipInput.setValue(zip);
+            await this.addressInput.setValue(address);
+            await this.addressCityInput.setValue(city);
+            await this.addressStateInput.setValue(state);
+
+            await waits.waitForDisplayed(await this.addressSubmitButton);
+            await this.addressSubmitButton.click();
+        }
     }
 
-    async chooseAddress(){
+    async chooseAddress() {
         await this.clickItemAddressButton();
         await this.clickContinueButton();
     }

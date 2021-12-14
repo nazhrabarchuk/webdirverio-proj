@@ -2,16 +2,16 @@ import Button from "../../../../framework/elements/controls/button.control.js";
 import TextView from "../../../../framework/elements/controls/text.view.control.js";
 import * as waits from "../../../../framework/helpers/waits.js";
 
-export default class BasketSummaryComponent{
-    get checkoutButton(){
+export default class BasketSummaryComponent {
+    get checkoutButton() {
         return new Button($('#checkoutButton'), 'Checkout summary submit button')
     }
 
-    get confirmationText(){
-        return new TextView($('h1.confirmation'), 'Confirmation text').getText();
+    get confirmationElement() {
+        return new TextView($('h1.confirmation'), 'Confirmation text');
     }
 
-    async clickCheckoutButton(){
+    async clickCheckoutButton() {
         await this.checkoutButton.click();
     }
 
@@ -20,11 +20,14 @@ export default class BasketSummaryComponent{
         return this;
     }
 
-    async waitForSummaryMessageAvailable(){
-        await waits.waitForDisplayed(await this.confirmationText);
+    async getConfirmationText(){
+        return await this.confirmationElement.getText();
+    }
+    async waitForSummaryMessageAvailable() {
+        await waits.waitForDisplayed(await this.confirmationElement);
     }
 
-    async isConfirmationTextDisplayed(){
-        return this.confirmationText.isDisplayed();
+    async isConfirmationTextDisplayed() {
+        return await this.confirmationElement.isDisplayed();
     }
 }

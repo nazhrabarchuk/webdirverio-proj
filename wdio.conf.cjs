@@ -171,7 +171,7 @@ exports.config = {
     async before(capabilities, specs) {
         global.allure = allureReport;
         // setting default browser size
-        await browser.setWindowSize(1980, 1024);
+        await browser.setWindowSize(1980, 800);
         console.log(`------- Browser name: ${capabilities.browserName}`)
     },
     afterSuite:(suite)=>{

@@ -27,9 +27,6 @@ describe('Registration testing', () => {
         )
 
         await loginPage.waitForPageAvailable();
-        // await browser.waitUntil(async () => (await loginPage.registrationButton.isExisting()),
-        //     { timeout: 5000,
-        //     timeoutMsg: 'expected element does not exist after 5s'});
 
         expect(await browser.getUrl()).is.equal('http://localhost:3000/#/login');
 

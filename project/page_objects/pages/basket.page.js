@@ -6,6 +6,7 @@ import BasketAddressComponent from "../components/basket/basket.address.componen
 import BasketDeliveryComponent from "../components/basket/basket.delivery.component.js";
 import BasketPaymentComponent from "../components/basket/basket.payment.component.js";
 import BasketSummaryComponent from "../components/basket/basket.summary.component.js";
+import {ADDRESS_DATA, CARD_DATA} from "../../../framework/helpers/dataProvider.js";
 
 
 class BasketPage extends BasePage {
@@ -20,6 +21,13 @@ class BasketPage extends BasePage {
 
     get checkoutButton() {
         return new Button($('#checkoutButton'), 'Basket checkout button');
+    }
+
+    get snackBar(){
+        return new TextView($('//*[contains(text(),\'We are out of stock! Sorry for the inconvenience.\')]'), 'SnackBar modal')
+    }
+    get plusItemButton(){
+        return new Button($('.mat-icon-button.mat-button-base.ng-star-inserted:last-child'), 'Plus count for item in basket');
     }
 
     async basketNotEmpty() {
@@ -38,6 +46,18 @@ class BasketPage extends BasePage {
         await waits.waitForDisplayed(await this.checkoutButton);
     }
 
+    async isSnackBarExisting(){
+        return await this.snackBar.isExisting();
+    }
+
+    async plusCountItem(){
+        while (!(await this.isSnackBarExisting())){
+            await this.plusItemButton.click();
+            await browser.pause(100);
+        }
+    }
+
+
     async getBasketAddressCo(){
         return new BasketAddressComponent();
     }
@@ -49,6 +69,46 @@ class BasketPage extends BasePage {
     }
     async getBasketSummaryCo(){
         return new BasketSummaryComponent();
+    }
+
+    async  basketPurchaseFlow(){
+        await this.clickCheckoutButton();
+        await (await this.getBasketAddressCo()).waitForComponentAvailable();
+
+        await ((await this.getBasketAddressCo()).addNewAddress(
+            ADDRESS_DATA.country,
+            ADDRESS_DATA.name,
+            ADDRESS_DATA.mobileNumber,
+            ADDRESS_DATA.zip,
+            ADDRESS_DATA.address,
+            ADDRESS_DATA.city,
+            ADDRESS_DATA.state
+        ));
+        await (await this.getBasketAddressCo()).waitForComponentAvailable();
+
+        await (await this.getBasketAddressCo()).chooseAddress();
+
+        await (await this.getBasketDeliveryCo()).waitForPageAvailable();
+
+        await (await this.getBasketDeliveryCo()).chooseDelivery();
+
+        await (await this.getBasketPaymentCo()).waitForComponentsAvailable();
+
+        await (await this.getBasketPaymentCo()).createNewCard(
+            CARD_DATA.name,
+            CARD_DATA.number,
+            CARD_DATA.month,
+            CARD_DATA.year
+        )
+        await (await this.getBasketPaymentCo()).waitForComponentsAvailable();
+
+        await (await this.getBasketPaymentCo()).chooseCard();
+
+        await (await this.getBasketSummaryCo()).waitForComponentAvailable();
+
+        await (await this.getBasketSummaryCo()).clickCheckoutButton();
+
+        await (await this.getBasketSummaryCo()).waitForSummaryMessageAvailable();
     }
 }
 

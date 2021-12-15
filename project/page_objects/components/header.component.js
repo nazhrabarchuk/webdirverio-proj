@@ -1,4 +1,5 @@
 import Button from "../../../framework/elements/controls/button.control.js";
+import Input from "../../../framework/elements/controls/input.control.js";
 
 export default class HeaderComponent{
 
@@ -19,6 +20,12 @@ export default class HeaderComponent{
     }
     get basketButton(){
         return new Button($('button[routerlink="/basket"]'), 'Basket button');
+    }
+    get searchButton(){
+        return new Button($('#searchQuery'), 'Search button');
+    }
+    get searchInput(){
+        return new Input($('#searchQuery input'), 'Search input');
     }
 
     async clickAccountButton(){
@@ -58,6 +65,13 @@ export default class HeaderComponent{
         allure.addStep("Navigate to user profile page");
         await this.openAccountMenu();
         await this.clickUserProfileButton();
+    }
+
+    async search(text){
+        allure.addStep('Search items by text');
+        await this.searchButton.click();
+        await this.searchInput.setValue(text);
+        await browser.keys("\uE007");
     }
 
 

@@ -1,4 +1,5 @@
 const allureReport = require("@wdio/allure-reporter").default;
+global.baseUrl = 'http://localhost:3000/';
 exports.config = {
     //
     // ====================
@@ -22,7 +23,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './project/test/specs/**/basket.purchase.flow.test.js'
+        './project/test/specs/**/sold.out.product.test.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -103,7 +104,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: baseUrl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -170,9 +171,14 @@ exports.config = {
     // resolved to continue.
     async before(capabilities, specs) {
         global.allure = allureReport;
+
         // setting default browser size
         await browser.setWindowSize(1980, 800);
         console.log(`------- Browser name: ${capabilities.browserName}`)
+
+    },
+    async beforeTest(test, context) {
+        // await browser.reloadSession();
     },
     afterSuite:(suite)=>{
         console.log(`'----- Suite "${suite.title}" running finished`);
@@ -182,6 +188,7 @@ exports.config = {
             let screen = await browser.takeScreenshot();
             await allure.addAttachment( ("ErrorScreenShot"), Buffer.from(screen, "base64"), "image/png")
         }
+
     }
     /**
      * Gets executed once before all workers get launched.

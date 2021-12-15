@@ -3,6 +3,7 @@ import Button from "../../../framework/elements/controls/button.control.js";
 import Input from "../../../framework/elements/controls/input.control.js";
 import TextView from "../../../framework/elements/controls/text.view.control.js";
 import * as waits from "../../../framework/helpers/waits.js";
+import {requestSender} from "../../../framework/helpers/http.request.wrapper.js";
 
 class LoginPage extends BasePage {
 
@@ -61,6 +62,16 @@ class LoginPage extends BasePage {
     async waitForErrorTextExisting() {
         await waits.waitForDisplayed(await this.errorTextElement);
     }
+
+
+    // async loginIntoAppWithRunAs(userId, creds = credentials.testerE2eMobius01) {
+    //     const loginCredentials = loginCredentialsMap.get(creds);
+    //     const bearerToken = await this.loginAndGetAuthToken(creds);
+    //     await mobius.TS.web.clearSessionAndCookies();
+    //     await mobius.mobiusCookie.setEagleCookies(bearerToken, loginCredentials.tenant);
+    //     await mobius.setUpRunAsUser(userId);
+    //     await this.pickTenant(loginCredentials.tenant);
+    // }
 
 }
 

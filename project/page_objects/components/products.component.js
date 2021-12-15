@@ -7,6 +7,14 @@ export default class ProductsComponent{
         return new TextView($(`.mat-grid-tile:nth-child(${number}) button`), 'Product item "add to basket" button');
     }
 
+    get itemSoldText(){
+        return new TextView($('.ribbon-sold'), 'Marked item as sold text');
+    }
+
+    async isItemSoldMarkedExisting(){
+        return await this.itemSoldText.isExisting();
+    }
+
     async addItemProductToBasket(number){
         await (await this.getItemProductButton(number)).click();
     }

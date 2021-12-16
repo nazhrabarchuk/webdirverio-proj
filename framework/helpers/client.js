@@ -19,7 +19,7 @@ export class Client {
         const responseGetSecurityQuestion = await requestSender.doGetRequest({
             url: baseUrl + 'api/SecurityQuestions/?id=1'
         })
-        return JSON.stringify(responseGetSecurityQuestion);
+        return JSON.stringify(responseGetSecurityQuestion.body);
     }
 
     /**
@@ -98,9 +98,10 @@ export class Client {
                 "securityAnswer": 'test',
             }
         }).then((response) => {
-            console.log('******** RESPONSE **********', response)
-            return response;
-        });
+                console.log('******** RESPONSE **********', response.statusCode)
+                return response.statusCode;
+            });
+
     }
 
 }

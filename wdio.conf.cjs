@@ -178,7 +178,6 @@ exports.config = {
 
     },
     async beforeTest(test, context) {
-        await browser.session('delete');
     },
     afterSuite:(suite)=>{
         console.log(`'----- Suite "${suite.title}" running finished`);

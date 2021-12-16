@@ -54,19 +54,22 @@ class HttpRequest {
 
     async doPostRequest(requestData) {
         console.log('***** requestData POST ****', requestData)
-        return this.doBaseRequest('post', requestData);
+        // return this.doBaseRequest('post', requestData);
+        return await superagent.post(requestData.url).send(requestData.body).type('json');
     }
 
     async doGetRequest(requestData) {
-        return this.doBaseRequest('get', requestData);
+        return await superagent.get(requestData.url);
     }
 
     async doPutRequest(requestData) {
-        return this.doBaseRequest('put', requestData);
+        let request = await superagent.put(requestData.url).send(requestData.body).type('json')
+        return request.ok((status) => true)
     }
 
     async doDeleteRequest(requestData) {
-        return this.doBaseRequest('delete', requestData);
+        let request = await superagent.delete(requestData.url);
+        return request.ok((status) => true)
     }
 
     // async createUserPost(url, body){

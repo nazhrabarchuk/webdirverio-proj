@@ -13,14 +13,13 @@ describe('API Login testing', () => {
 
 
     it('API POST: Create user', async () => {
-     await clientData.register();
-        console.log('************** register **********', await clientData.register().then((response)=>{
-            console.log(response.status);
-        }));
-     await clientData.getAuthToken();
-        console.log('*********** await clientData.login()*************',await clientData.getAuthToken())
-     await browser.refresh();
-     await browser.pause(2000);
+     const statuse = await clientData.register();
+        console.log('************** register **********', statuse);
+
+     // await clientData.getAuthToken();
+     //    console.log('*********** await clientData.login()*************',await clientData.getAuthToken())
+     // await browser.refresh();
+     // await browser.pause(2000);
     });
 
 });

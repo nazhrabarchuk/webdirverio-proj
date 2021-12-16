@@ -1,33 +1,29 @@
 import superagent from "superagent";
 
 const requestData = {
-    url:'',
-    payload:'',
+    url: '',
+    payload: '',
     headers: '',
     isFormData: false,
 }
 
-class HttpRequest{
+class HttpRequest {
 
-     async doBaseRequest(method, requestData){
+    async doBaseRequest(method, requestData) {
         const request = async () => this.createRequest(method, requestData);
-        let response;
-        try {
-            response = await request();
-        } catch {
-            throw new Error(`${method} request to "${requestData.url}" was failed`);
+        let response = await request();
+
+        // if (response.statusCode < 400) {
+        //     console.log(`${method} request response status code: "${response.statusCode}"`);
+        //     return response.body;
+        // }
+        return {
+            body: response.body,
+            status: response.statusCode
         }
-         if (response.statusCode < 400) {
-            console.log(`${method} request response status code: "${response.statusCode}"`);
-             return response.body;
-         }
-         // else {
-         //     throw new Error(`${method} request to "${requestData.url}" was failed with status code: ` +
-         //         `"${response.statusCode}"`);
-         // }
     }
 
-    async createRequest(method, requestData){
+    async createRequest(method, requestData) {
         let request;
         switch (method) {
             case "get":
@@ -55,20 +51,21 @@ class HttpRequest{
         // }
         return request.ok((status) => true);
     }
-     async doPostRequest(requestData){
-         console.log('***** requestData POST ****', requestData)
+
+    async doPostRequest(requestData) {
+        console.log('***** requestData POST ****', requestData)
         return this.doBaseRequest('post', requestData);
     }
 
-     async doGetRequest(requestData) {
+    async doGetRequest(requestData) {
         return this.doBaseRequest('get', requestData);
     }
 
-     async doPutRequest(requestData) {
+    async doPutRequest(requestData) {
         return this.doBaseRequest('put', requestData);
     }
 
-     async doDeleteRequest(requestData) {
+    async doDeleteRequest(requestData) {
         return this.doBaseRequest('delete', requestData);
     }
 
@@ -76,8 +73,8 @@ class HttpRequest{
     //   return  await this.createRequest('post', url,body)
     // }
 
-    async getToken(){
-        return global.token = await browser.execute( (key) => {
+    async getToken() {
+        return global.token = await browser.execute((key) => {
             return browser.localStorage.getItem(key)
         }, 'token')
     }

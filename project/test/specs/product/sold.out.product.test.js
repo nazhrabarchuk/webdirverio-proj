@@ -8,10 +8,17 @@ import {assert} from "chai";
 describe('Buying last items and checking if items are marked as sold-out test', () => {
     before(async () => {
         await mainPage.open();
+        await browser.execute(() => localStorage.clear())
+        await browser.execute(() => sessionStorage.clear())
+        await browser.deleteCookies()
 
         await clientData.register();
-        await (await mainPage.getHeaderCo()).navigateToLogin();
-        await loginPage.login(EMAIL_DEFAULT_TEXT, PASSWORD_DEFAULT_TEXT)
+        await clientData.getAuthToken();
+        await clientData.setBrowserCreds();
+        await mainPage.open();
+        // await clientData.register();
+        // await (await mainPage.getHeaderCo()).navigateToLogin();
+        // await loginPage.login(EMAIL_DEFAULT_TEXT, PASSWORD_DEFAULT_TEXT)
 
     });
     it('Should buy last items & marked as sold-out', async () => {

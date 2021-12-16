@@ -27,10 +27,6 @@ class LoginPage extends BasePage {
         return new Button($('a[href="#/register"]'), 'Registration button');
     }
 
-    // async getBaseElement() {
-    //     return new HTMLElement($(baseElementLocator), "Name Base");
-    // }
-
     open() {
         super.open('/#/login');
     }

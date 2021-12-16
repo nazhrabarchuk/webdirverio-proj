@@ -6,11 +6,9 @@ global.EMAIL_DEFAULT_TEXT = `${registrationPage.randomData}@test.com`;
 global.PASSWORD_DEFAULT_TEXT = `testtest`;
 
 export class Client {
-    /**
-     * Single get token
-     * @type {null|string}
-     */
+
     static TOKEN = null;
+    static BID = null;
     static ID = null;
 
     /**
@@ -28,24 +26,13 @@ export class Client {
      * If token is null login user else get token line
      * @return {string}
      */
-    static async getToken() {
 
-        if (!Client.TOKEN) {
-            await (new Client()).login().then((response) => {
-                console.log("\n\n\n LINE: 28  get response for token \n\n\n", response);
-                Client.TOKEN = response.authentication.token;
-            });
-        }
 
-        return Client.TOKEN;
-
-    }
-
-    static async getUserId(){
+    static async getUserId() {
         if (!Client.ID) {
             await (new Client()).login().then((response) => {
                 console.log("\n\n\n LINE: 28  get response for token \n\n\n", response);
-                Client.ID = response.authentication.bid;
+                Client.ID = response.body.authentication.bid;
             });
         }
         return Client.ID;
@@ -56,37 +43,40 @@ export class Client {
      * Get token || bid || umail of user
      * @returns {Promise}
      */
-    async login() {
+    async setBrowserCreds() {
 
-        const response = await requestSender.doPostRequest({
-            url: `${baseUrl}rest/user/login/`,
-            body: {
-                'email': EMAIL_DEFAULT_TEXT,
-                'password': PASSWORD_DEFAULT_TEXT
-            }
-        });
+        const setLocalStorageToken = `localStorage.setItem('token', '${Client.TOKEN}')`;
+        const setSessionStorageBid = `sessionStorage.setItem('bid', '${Client.BID}')`;
 
-        // if (!response.hasOwnProperty('authentication')) {
-        //     throw new Error(`\n\n Cant find in response authentication prop`);
-        // }
-        //
-        // if (!response.authentication.hasOwnProperty('token')) {
-        //     throw new Error("\n\n Cant find token in authentication user response \n\n ");
-        // }
-
-        const token = response.authentication.token;
-
-        const id = response.authentication.bid;
-
-        const command = `localStorage.setItem('token', '${token}')`;
-
-        Client.TOKEN = token;
-        Client.ID = id;
         await browser.execute('localStorage.clear()');
-        await browser.execute(command);
-        console.log('****** TOKEN ******', Client.TOKEN)
-        return response;
+        await browser.execute(setLocalStorageToken);
+        await browser.execute(setSessionStorageBid);
+        await browser.setCookies({
+            name: 'token',
+            value: Client.TOKEN
+        })
+        await browser.refresh();
     }
+
+
+    async getAuthToken() {
+        let response;
+        if (!Client.TOKEN) {
+            response = await requestSender.doPostRequest({
+                url: `${baseUrl}rest/user/login/`,
+                body: {
+                    email: EMAIL_DEFAULT_TEXT,
+                    password: PASSWORD_DEFAULT_TEXT
+                }
+            });
+            // console.log('******* response ********', response);
+            Client.TOKEN = response.body.authentication.token;
+            Client.BID = response.body.authentication.bid;
+            // console.log('******* Client.BID ********', Client.BID);
+        }
+        return Client.TOKEN;
+    }
+
 
     /**
      * Register user on site
@@ -98,20 +88,16 @@ export class Client {
         const question = await this.securityQuestionGet();
 
         /** Send post request for register user **/
-        const users = async () => {
-            return await requestSender.doPostRequest({
-                url: baseUrl + 'api/Users/',
-                body: {
-                    "email": EMAIL_DEFAULT_TEXT,
-                    "password": PASSWORD_DEFAULT_TEXT,
-                    "passwordRepeat": PASSWORD_DEFAULT_TEXT,
-                    "securityQuestion": question,
-                    "securityAnswer": 'test',
-                }
-            });
-
-        };
-        return await users().then((response) => {
+        return await requestSender.doPostRequest({
+            url: baseUrl + 'api/Users/',
+            body: {
+                "email": EMAIL_DEFAULT_TEXT,
+                "password": PASSWORD_DEFAULT_TEXT,
+                "passwordRepeat": PASSWORD_DEFAULT_TEXT,
+                "securityQuestion": question,
+                "securityAnswer": 'test',
+            }
+        }).then((response) => {
             console.log('******** RESPONSE **********', response)
             return response;
         });

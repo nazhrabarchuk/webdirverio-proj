@@ -12,22 +12,16 @@ const NEW_IMAGE_URL = 'https://www.w3schools.com/howto/img_avatar.png';
 describe('Edit profile info test', () => {
     before(async () => {
         allureWrapper.addAllureDescription('Edit user profile info');
-        await mainPage.open();
-
         console.log("\n\n Start user authorization \n\n");
-
         await clientData.register();
+        await clientData.getAuthToken();
 
-        console.log("\n\n FINISH REGISTER USER \n\n");
-        // await browser.refresh();
-
-        await (await mainPage.getHeaderCo()).navigateToLogin();
-        await loginPage.login(EMAIL_DEFAULT_TEXT, PASSWORD_DEFAULT_TEXT)
+        await mainPage.open();
+        await clientData.setBrowserCreds();
 
         await (await mainPage.getHeaderCo()).navigateToUserProfile();
         await profilePage.waitForPageAvailable();
     })
-
 
     it('Positive: Set new username', async () => {
         await profilePage.setUsername(NEW_USERNAME);

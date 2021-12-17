@@ -1,25 +1,16 @@
-import {assert, expect} from "chai";
-import loginPage from "../../../page_objects/pages/login.page.js";
-import mainPage from "../../../page_objects/pages/main.page.js";
-import * as allureWrapper from '../../../../framework/helpers/allure.wrapper.js';
-import superagent from "superagent";
-import {requestSender} from "../../../../framework/helpers/http.request.wrapper.js";
-import registrationPage from "../../../page_objects/pages/registration.page.js";
-import {Client, clientData} from "../../../../framework/helpers/client.js";
+import {expect} from "chai";
+import {clientData} from "../../../../framework/helpers/client.js";
 
-// const EMAIL_DEFAULT_TEXT = `${registrationPage.randomData}@test.com`;
-// const PASSWORD_DEFAULT_TEXT = registrationPage.randomData;
 describe('API Login testing', () => {
 
+    it('API POST: user registration', async () => {
+     const response = await clientData.register();
+        expect(response.statusCode).to.equal(201);
+    });
 
-    it('API POST: Create user', async () => {
-     const statuse = await clientData.register();
-        console.log('************** register **********', statuse);
-
-     // await clientData.getAuthToken();
-     //    console.log('*********** await clientData.login()*************',await clientData.getAuthToken())
-     // await browser.refresh();
-     // await browser.pause(2000);
+    it('API POST: user login', async () => {
+        const response = await clientData.loginUser();
+        expect(response.statusCode).to.equal(200);
     });
 
 });

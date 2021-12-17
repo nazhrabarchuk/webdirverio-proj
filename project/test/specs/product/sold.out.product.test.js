@@ -1,28 +1,21 @@
 import mainPage from "../../../page_objects/pages/main.page.js";
-import {Client, clientData} from "../../../../framework/helpers/client.js";
-import superagent from "superagent";
-import loginPage from "../../../page_objects/pages/login.page.js";
+import {clientData} from "../../../../framework/helpers/client.js";
 import basketPage from "../../../page_objects/pages/basket.page.js";
 import {assert} from "chai";
 
+const SEARCH_ITEM_TEXT = 'Woodruff Syrup "Forest Master X-Treme"';
+
 describe('Buying last items and checking if items are marked as sold-out test', () => {
     before(async () => {
-        await mainPage.open();
-        await browser.execute(() => localStorage.clear())
-        await browser.execute(() => sessionStorage.clear())
-        await browser.deleteCookies()
-
         await clientData.register();
         await clientData.getAuthToken();
-        await clientData.setBrowserCreds();
         await mainPage.open();
-        // await clientData.register();
-        // await (await mainPage.getHeaderCo()).navigateToLogin();
-        // await loginPage.login(EMAIL_DEFAULT_TEXT, PASSWORD_DEFAULT_TEXT)
-
+        await clientData.setBrowserCreds();
+        await browser.pause(2000)
+        await mainPage.waitForPageAvailable();
     });
     it('Should buy last items & marked as sold-out', async () => {
-        await (await mainPage.getHeaderCo()).search('Woodruff Syrup "Forest Master X-Treme"');
+        await (await mainPage.getHeaderCo()).search(SEARCH_ITEM_TEXT);
         await mainPage.waitForPageAvailable();
 
         await (await mainPage.getProductsComponent()).addItemProductToBasket(1);
@@ -34,7 +27,7 @@ describe('Buying last items and checking if items are marked as sold-out test', 
         await browser.pause(2000);
         await basketPage.basketPurchaseFlow();
 
-        await (await mainPage.getHeaderCo()).search('Woodruff Syrup "Forest Master X-Treme"');
+        await (await mainPage.getHeaderCo()).search(SEARCH_ITEM_TEXT);
         await mainPage.waitForPageAvailable();
 
         assert.isTrue(await (await mainPage.getProductsComponent()).isItemSoldMarkedExisting());

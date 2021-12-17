@@ -1,18 +1,18 @@
 import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js";
 import mainPage from "../../../page_objects/pages/main.page.js";
-import loginPage from "../../../page_objects/pages/login.page.js";
 import basketPage from "../../../page_objects/pages/basket.page.js";
 import {assert, expect} from "chai";
+import {clientData} from "../../../../framework/helpers/client.js";
 
 const CONFIRMATION_TEXT = 'Thank you for your purchase!';
 
 describe('Purchase flow test', () => {
     before(async () => {
         allureWrapper.addAllureDescription('Complete basket purchase flow test');
+        await clientData.register();
+        await clientData.getAuthToken();
         await mainPage.open();
-        await (await mainPage.getHeaderCo()).navigateToLogin();
-        await loginPage.waitForPageAvailable();
-        await loginPage.login('test13@test.com', 'testtest');
+        await clientData.setBrowserCreds();
 
         await mainPage.waitForPageAvailable();
 

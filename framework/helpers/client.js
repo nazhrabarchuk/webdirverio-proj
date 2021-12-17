@@ -1,6 +1,5 @@
 import {requestSender} from "./http.request.wrapper.js";
 import registrationPage from "../../project/page_objects/pages/registration.page.js";
-import superagent from "superagent";
 
 global.EMAIL_DEFAULT_TEXT = `${registrationPage.randomData}@test.com`;
 global.PASSWORD_DEFAULT_TEXT = `testtest`;
@@ -49,6 +48,8 @@ export class Client {
         const setSessionStorageBid = `sessionStorage.setItem('bid', '${Client.BID}')`;
 
         await browser.execute('localStorage.clear()');
+        await browser.execute('sessionStorage.clear()');
+        await browser.deleteCookies(['token'])
         await browser.execute(setLocalStorageToken);
         await browser.execute(setSessionStorageBid);
         await browser.setCookies({
@@ -62,19 +63,35 @@ export class Client {
     async getAuthToken() {
         let response;
         if (!Client.TOKEN) {
-            response = await requestSender.doPostRequest({
-                url: `${baseUrl}rest/user/login/`,
-                body: {
-                    email: EMAIL_DEFAULT_TEXT,
-                    password: PASSWORD_DEFAULT_TEXT
-                }
-            });
-            // console.log('******* response ********', response);
+            response = await  this.loginUser();
+            // response = await requestSender.doPostRequest({
+            //     url: `${baseUrl}rest/user/login/`,
+            //     body: {
+            //         email: EMAIL_DEFAULT_TEXT,
+            //         password: PASSWORD_DEFAULT_TEXT
+            //     }
+            // });
+            console.log('******* Client.TOKEN ********', Client.TOKEN);
+            console.log('******* Client.BID ********', Client.BID);
             Client.TOKEN = response.body.authentication.token;
             Client.BID = response.body.authentication.bid;
-            // console.log('******* Client.BID ********', Client.BID);
         }
         return Client.TOKEN;
+    }
+
+    async loginUser() {
+        return await requestSender.doPostRequest({
+            url: `${baseUrl}rest/user/login/`,
+            body: {
+                email: EMAIL_DEFAULT_TEXT,
+                password: PASSWORD_DEFAULT_TEXT
+            }
+        }).then((response) => {
+            // console.log('******* response LOGIN USER ********', response);
+            console.log('******* STATUS CODE LOGIN USER ********', response.statusCode);
+            return response;
+        })
+
     }
 
 
@@ -98,9 +115,8 @@ export class Client {
                 "securityAnswer": 'test',
             }
         }).then((response) => {
-                console.log('******** RESPONSE **********', response.statusCode)
-                return response.statusCode;
-            });
+            return response;
+        });
 
     }
 

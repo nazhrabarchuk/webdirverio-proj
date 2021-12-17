@@ -53,11 +53,9 @@ class BasketPage extends BasePage {
     async plusCountItem(){
         while (!(await this.isSnackBarExisting())){
             await this.plusItemButton.click();
-            await browser.pause(100);
+            await browser.pause(50);
         }
     }
-
-
     async getBasketAddressCo(){
         return new BasketAddressComponent();
     }

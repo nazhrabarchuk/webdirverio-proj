@@ -1,17 +1,17 @@
 import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js";
 import mainPage from "../../../page_objects/pages/main.page.js";
-import loginPage from "../../../page_objects/pages/login.page.js";
 import basketPage from "../../../page_objects/pages/basket.page.js";
-import {assert, expect} from "chai";
+import {assert} from "chai";
+import {clientData} from "../../../../framework/helpers/client.js";
 
 
 describe('Add/remove items to the basket', ()=>{
     before(async () => {
         allureWrapper.addAllureDescription('Add/remove items to the basket');
+        await clientData.register();
+        await clientData.getAuthToken();
         await mainPage.open();
-        await (await mainPage.getHeaderCo()).navigateToLogin();
-        await loginPage.waitForPageAvailable();
-        await loginPage.login('test13@test.com', 'testtest');
+        await clientData.setBrowserCreds();
 
         await mainPage.waitForPageAvailable();
 

@@ -25,8 +25,6 @@ export class Client {
      * If token is null login user else get token line
      * @return {string}
      */
-
-
     static async getUserId() {
         if (!Client.ID) {
             await (new Client()).login().then((response) => {
@@ -59,18 +57,10 @@ export class Client {
         await browser.refresh();
     }
 
-
     async getAuthToken() {
         let response;
         if (!Client.TOKEN) {
-            response = await  this.loginUser();
-            // response = await requestSender.doPostRequest({
-            //     url: `${baseUrl}rest/user/login/`,
-            //     body: {
-            //         email: EMAIL_DEFAULT_TEXT,
-            //         password: PASSWORD_DEFAULT_TEXT
-            //     }
-            // });
+            response = await this.loginUser();
             console.log('******* Client.TOKEN ********', Client.TOKEN);
             console.log('******* Client.BID ********', Client.BID);
             Client.TOKEN = response.body.authentication.token;
@@ -87,14 +77,11 @@ export class Client {
                 password: PASSWORD_DEFAULT_TEXT
             }
         }).then((response) => {
-            // console.log('******* response LOGIN USER ********', response);
             console.log('******* STATUS CODE LOGIN USER ********', response.statusCode);
             return response;
         })
 
     }
-
-
     /**
      * Register user on site
      * @returns {Promise<*>}
@@ -117,9 +104,7 @@ export class Client {
         }).then((response) => {
             return response;
         });
-
     }
-
 }
 
 export const clientData = new Client();

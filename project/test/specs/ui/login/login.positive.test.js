@@ -1,8 +1,8 @@
 import {assert} from "chai";
-import loginPage from "../../../page_objects/pages/login.page.js";
-import mainPage from "../../../page_objects/pages/main.page.js";
-import * as allureWrapper from '../../../../framework/helpers/allure.wrapper.js';
-import {clientData} from "../../../../framework/helpers/client.js";
+import loginPage from "../../../../page_objects/pages/login.page.js";
+import mainPage from "../../../../page_objects/pages/main.page.js";
+import * as allureWrapper from '../../../../../framework/helpers/allure.wrapper.js';
+import {clientData} from "../../../../../framework/helpers/client.js";
 
 describe('Login testing', () => {
     before(async () => {

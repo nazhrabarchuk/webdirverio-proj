@@ -1,10 +1,8 @@
-import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js";
-import mainPage from "../../../page_objects/pages/main.page.js";
-import profilePage from "../../../page_objects/pages/profile.page.js";
+import * as allureWrapper from "../../../../../framework/helpers/allure.wrapper.js";
+import mainPage from "../../../../page_objects/pages/main.page.js";
+import profilePage from "../../../../page_objects/pages/profile.page.js";
 import {assert, expect} from "chai";
-import loginPage from "../../../page_objects/pages/login.page.js";
-import {Client, clientData} from "../../../../framework/helpers/client.js";
-import superagent from "superagent";
+import {Client, clientData} from "../../../../../framework/helpers/client.js";
 
 const NEW_USERNAME = 'Super User';
 const NEW_IMAGE_URL = 'https://www.w3schools.com/howto/img_avatar.png';

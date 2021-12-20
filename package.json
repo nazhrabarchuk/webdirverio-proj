@@ -8,6 +8,8 @@
   "type": "module",
   "scripts": {
     "wdio-run": "cls && wdio run wdio.conf.cjs",
+    "wdio-run-api": "cls && wdio run wdio.conf.cjs --suite api",
+    "wdio-run-ui": "cls && wdio run wdio.conf.cjs --suite ui",
     "allure-report": "allure generate allure-results -o allure-report --clean && allure open"
   },
   "devDependencies": {

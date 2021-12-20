@@ -1,12 +1,14 @@
-import mainPage from "../../../page_objects/pages/main.page.js";
-import {clientData} from "../../../../framework/helpers/client.js";
-import basketPage from "../../../page_objects/pages/basket.page.js";
+import mainPage from "../../../../page_objects/pages/main.page.js";
+import {clientData} from "../../../../../framework/helpers/client.js";
+import basketPage from "../../../../page_objects/pages/basket.page.js";
 import {assert} from "chai";
+import * as allureWrapper from "../../../../../framework/helpers/allure.wrapper.js";
 
 const SEARCH_ITEM_TEXT = 'Woodruff Syrup "Forest Master X-Treme"';
 
 describe('Buying last items and checking if items are marked as sold-out test', () => {
     before(async () => {
+        allureWrapper.addAllureDescription('Positive: Buy last item & check if items sold-out');
         await clientData.register();
         await clientData.getAuthToken();
         await mainPage.open();

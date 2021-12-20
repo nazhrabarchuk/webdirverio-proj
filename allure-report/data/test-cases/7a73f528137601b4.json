@@ -1,0 +1,147 @@
+{
+  "uid" : "7a73f528137601b4",
+  "name" : "Should buy last items & marked as sold-out",
+  "fullName" : "Buying last items and checking if items are marked as sold-out test.Should buy last items & marked as sold-out",
+  "historyId" : "4ed5dbced7a8d3d4ccb317af3c8087ed",
+  "time" : {
+    "start" : 1639917354944,
+    "stop" : 1639917394436,
+    "duration" : 39492
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "`Open Main page",
+      "time" : {
+        "start" : 1639917367340,
+        "stop" : 1639917367340,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Search items by text",
+      "time" : {
+        "start" : 1639917374407,
+        "stop" : 1639917374407,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Add new address item",
+      "time" : {
+        "start" : 1639917387630,
+        "stop" : 1639917387630,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Create new card item",
+      "time" : {
+        "start" : 1639917391961,
+        "stop" : 1639917391961,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Search items by text",
+      "time" : {
+        "start" : 1639917394002,
+        "stop" : 1639917394002,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 5,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-7"
+  }, {
+    "name" : "suite",
+    "value" : "Buying last items and checking if items are marked as sold-out test"
+  }, {
+    "name" : "testClass",
+    "value" : "Buying last items and checking if items are marked as sold-out test"
+  }, {
+    "name" : "testMethod",
+    "value" : "Should buy last items & marked as sold-out"
+  }, {
+    "name" : "package",
+    "value" : "Buying last items and checking if items are marked as sold-out test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-96.0.4664.110"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7a73f528137601b4.json",
+  "parameterValues" : [ "chrome-96.0.4664.110" ]
+}

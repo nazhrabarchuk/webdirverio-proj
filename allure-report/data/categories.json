@@ -1,5 +1,97 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
-  "children" : [ ],
-  "name" : "categories"
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Element \"Add new address button\" is not displayed after 15000 timeout",
+      "children" : [ {
+        "name" : "Should correct buy item from basket",
+        "uid" : "59dbe6d77dc82e56",
+        "parentUid" : "a363f61c4f8b0b3cfcb34fb33258fadc",
+        "status" : "broken",
+        "time" : {
+          "start" : 1639917333513,
+          "stop" : 1639917376942,
+          "duration" : 43429
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "chrome-96.0.4664.110" ]
+      } ],
+      "uid" : "a363f61c4f8b0b3cfcb34fb33258fadc"
+    }, {
+      "name" : "Can't call click on element with selector \"//*[@class=\"mat-option-text\"][contains(text(),\"Mother's maiden name?\")]\" because element wasn't found",
+      "children" : [ {
+        "name" : "Positive: should register with valid credentials",
+        "uid" : "788bd43d8af1305b",
+        "parentUid" : "51c2230e7a8b2a128f308cc0a81a5e74",
+        "status" : "broken",
+        "time" : {
+          "start" : 1639917334607,
+          "stop" : 1639917352794,
+          "duration" : 18187
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "chrome-96.0.4664.110" ]
+      } ],
+      "uid" : "51c2230e7a8b2a128f308cc0a81a5e74"
+    }, {
+      "name" : "Can't call click on element with selector \".cdk-column-remove button\" because element wasn't found",
+      "children" : [ {
+        "name" : "Remove item from basket",
+        "uid" : "8875ec27a436dfd7",
+        "parentUid" : "64eae1353766b949c492b7e2ce44ae20",
+        "status" : "broken",
+        "time" : {
+          "start" : 1639917362822,
+          "stop" : 1639917373407,
+          "duration" : 10585
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "chrome-96.0.4664.110" ]
+      } ],
+      "uid" : "64eae1353766b949c492b7e2ce44ae20"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  }, {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "expected false to be true      \n                      actual expected\n                      \n                      falsetrue\n                      ",
+      "children" : [ {
+        "name" : "Add item to basket",
+        "uid" : "185df4d6e4cd19",
+        "parentUid" : "f9f69cc84f6925990fb2875b9b7cd252",
+        "status" : "failed",
+        "time" : {
+          "start" : 1639917333923,
+          "stop" : 1639917362821,
+          "duration" : 28898
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "chrome-96.0.4664.110" ]
+      } ],
+      "uid" : "f9f69cc84f6925990fb2875b9b7cd252"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
 }

@@ -4,6 +4,7 @@ import Input from "../../../framework/elements/controls/input.control.js";
 import Button from "../../../framework/elements/controls/button.control.js";
 import Randomstring from "randomstring";
 import * as waits from "../../../framework/helpers/waits.js";
+import TextView from "../../../framework/elements/controls/text.view.control.js";
 
 class RegistrationPage extends BasePage {
 
@@ -31,12 +32,36 @@ class RegistrationPage extends BasePage {
         return new Dropdown($('[name="securityQuestion"]'), 'Security question');
     }
 
-    get randomData() {
-        return Randomstring.generate({
-            charset: 'alphabetic',
-            length: 7,
-            capitalization: 'lowercase'
-        })
+    get errorEmailCo() {
+        return new TextView($('//*[contains(@class,\'mat-error\') and contains(text(),\'Email address is not valid.\')]'), 'Error email text');
+    }
+
+    get passNotMatchCo() {
+        return new TextView($('//*[contains(@class,\'mat-error\') and contains(text(),\'Passwords do not match\')]'), 'Error pass not match text');
+    }
+
+    // get randomData() {
+    //     return Randomstring.generate({
+    //         charset: 'alphabetic',
+    //         length: 7,
+    //         capitalization: 'lowercase'
+    //     })
+    // }
+
+    async getErrorEmailText() {
+        return this.errorEmailCo.getText();
+    }
+
+    async getPassNotMatchText() {
+        return this.passNotMatchCo.getText();
+    }
+
+    async isErrorEmailTextExisting() {
+        return await this.errorEmailCo.isExisting();
+    }
+
+    async isPassNotMatchCoExisting() {
+        return await this.passNotMatchCo.isExisting();
     }
 
     async selectQuestion(text) {

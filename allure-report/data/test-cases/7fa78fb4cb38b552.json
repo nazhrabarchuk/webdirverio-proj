@@ -1,0 +1,62 @@
+{
+  "uid" : "7fa78fb4cb38b552",
+  "name" : "Should leave feedback with rate 3",
+  "fullName" : "API Leaving customer feedback tests.Should leave feedback with rate 3",
+  "historyId" : "9f90a62dae928ce3ac2f988c6bea986",
+  "time" : {
+    "start" : 1639917367590,
+    "stop" : 1639917371148,
+    "duration" : 3558
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-1"
+  }, {
+    "name" : "suite",
+    "value" : "API Leaving customer feedback tests"
+  }, {
+    "name" : "testClass",
+    "value" : "API Leaving customer feedback tests"
+  }, {
+    "name" : "testMethod",
+    "value" : "Should leave feedback with rate 3"
+  }, {
+    "name" : "package",
+    "value" : "API Leaving customer feedback tests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-96.0.4664.110"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7fa78fb4cb38b552.json",
+  "parameterValues" : [ "chrome-96.0.4664.110" ]
+}

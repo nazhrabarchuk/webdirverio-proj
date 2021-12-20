@@ -1,8 +1,8 @@
-import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js";
-import mainPage from "../../../page_objects/pages/main.page.js";
-import basketPage from "../../../page_objects/pages/basket.page.js";
+import * as allureWrapper from "../../../../../framework/helpers/allure.wrapper.js";
+import mainPage from "../../../../page_objects/pages/main.page.js";
+import basketPage from "../../../../page_objects/pages/basket.page.js";
 import {assert, expect} from "chai";
-import {clientData} from "../../../../framework/helpers/client.js";
+import {clientData} from "../../../../../framework/helpers/client.js";
 
 const CONFIRMATION_TEXT = 'Thank you for your purchase!';
 

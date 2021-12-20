@@ -1,11 +1,24 @@
 import {requestSender} from "./http.request.wrapper.js";
-import registrationPage from "../../project/page_objects/pages/registration.page.js";
+import {REGISTRATION_DATA} from "./dataProvider.js";
 
-global.EMAIL_DEFAULT_TEXT = `${registrationPage.randomData}@test.com`;
+global.EMAIL_DEFAULT_TEXT = REGISTRATION_DATA.email;
 global.PASSWORD_DEFAULT_TEXT = `testtest`;
 
-export class Client {
+let question;
 
+const REGISTER_USER_POST_BODY_DATA = {
+    email: EMAIL_DEFAULT_TEXT,
+    password: PASSWORD_DEFAULT_TEXT,
+    passwordRepeat: PASSWORD_DEFAULT_TEXT,
+    securityQuestion: question,
+    securityAnswer: 'test',
+}
+const LOGIN_USER_POST_BODY_DATA = {
+    email: EMAIL_DEFAULT_TEXT,
+    password: PASSWORD_DEFAULT_TEXT
+}
+
+export class Client {
     static TOKEN = null;
     static BID = null;
     static ID = null;
@@ -57,6 +70,10 @@ export class Client {
         await browser.refresh();
     }
 
+    /**
+     * Return TOKEN of logged user
+     * @return {Promise} || string
+     */
     async getAuthToken() {
         let response;
         if (!Client.TOKEN) {
@@ -69,19 +86,20 @@ export class Client {
         return Client.TOKEN;
     }
 
+    /**
+     * Login user
+     * @return {Promise}
+     */
     async loginUser() {
         return await requestSender.doPostRequest({
             url: `${baseUrl}rest/user/login/`,
-            body: {
-                email: EMAIL_DEFAULT_TEXT,
-                password: PASSWORD_DEFAULT_TEXT
-            }
+            body: LOGIN_USER_POST_BODY_DATA
         }).then((response) => {
             console.log('******* STATUS CODE LOGIN USER ********', response.statusCode);
             return response;
         })
-
     }
+
     /**
      * Register user on site
      * @returns {Promise<*>}
@@ -89,18 +107,12 @@ export class Client {
     async register() {
 
         /** Get json string of quest **/
-        const question = await this.securityQuestionGet();
+        question = await this.securityQuestionGet();
 
         /** Send post request for register user **/
         return await requestSender.doPostRequest({
             url: baseUrl + 'api/Users/',
-            body: {
-                "email": EMAIL_DEFAULT_TEXT,
-                "password": PASSWORD_DEFAULT_TEXT,
-                "passwordRepeat": PASSWORD_DEFAULT_TEXT,
-                "securityQuestion": question,
-                "securityAnswer": 'test',
-            }
+            body: REGISTER_USER_POST_BODY_DATA
         }).then((response) => {
             return response;
         });

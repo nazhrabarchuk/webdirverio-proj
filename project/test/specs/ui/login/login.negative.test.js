@@ -1,7 +1,7 @@
-import { assert, expect  } from "chai";
-import loginPage from "../../../page_objects/pages/login.page.js";
-import mainpage from "../../../page_objects/pages/main.page.js";
-import * as allureWrapper from "../../../../framework/helpers/allure.wrapper.js";
+import { expect  } from "chai";
+import loginPage from "../../../../page_objects/pages/login.page.js";
+import mainpage from "../../../../page_objects/pages/main.page.js";
+import * as allureWrapper from "../../../../../framework/helpers/allure.wrapper.js";
 
 const EMAIL_WRONG_TEXT = 'wrong@test.com';
 const PASSWORD_WRONG_TEXT = 'wrongwrong';

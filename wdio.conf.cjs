@@ -25,6 +25,14 @@ exports.config = {
     specs: [
         './project/test/specs/**/*.test.js'
     ],
+    suites: {
+        api: [
+            './project/test/specs/api/*.test.js'
+        ],
+        ui: [
+            './project/test/specs/ui/*.test.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -60,7 +68,7 @@ exports.config = {
             browserName: 'chrome',
             acceptInsecureCerts: true,
             maxInstances: 1,
-          },
+        },
         //   {
         //     browserName: 'firefox',
         //     acceptInsecureCerts: true,
@@ -75,7 +83,7 @@ exports.config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
 
-],
+    ],
     //
     // ===================
     // Test Configurations
@@ -152,7 +160,6 @@ exports.config = {
     }]],
 
 
-
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -178,13 +185,13 @@ exports.config = {
     },
     async beforeTest(test, context) {
     },
-    afterSuite:(suite)=>{
+    afterSuite: (suite) => {
         console.log(`'----- Suite "${suite.title}" running finished`);
     },
-    afterTest:async (test, context,{error, result, duration, passed, retries}) =>{
-        if(!passed){
+    afterTest: async (test, context, {error, result, duration, passed, retries}) => {
+        if (!passed) {
             let screen = await browser.takeScreenshot();
-            await allure.addAttachment( ("ErrorScreenShot"), Buffer.from(screen, "base64"), "image/png")
+            await allure.addAttachment(("ErrorScreenShot"), Buffer.from(screen, "base64"), "image/png")
         }
 
     },
@@ -315,10 +322,10 @@ exports.config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
 }

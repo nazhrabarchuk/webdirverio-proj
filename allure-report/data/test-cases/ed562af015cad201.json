@@ -1,0 +1,117 @@
+{
+  "uid" : "ed562af015cad201",
+  "name" : "Positive: Set new username",
+  "fullName" : "Edit profile info test.Positive: Set new username",
+  "historyId" : "7eba37f3747d9e02f757e352323f5595",
+  "time" : {
+    "start" : 1639917333514,
+    "stop" : 1639917368401,
+    "duration" : 34887
+  },
+  "description" : "Edit user profile info",
+  "descriptionHtml" : "<p>Edit user profile info</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "`Open Main page",
+      "time" : {
+        "start" : 1639917343175,
+        "stop" : 1639917343175,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Navigate to user profile page",
+      "time" : {
+        "start" : 1639917350090,
+        "stop" : 1639917350090,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Set new username",
+      "time" : {
+        "start" : 1639917357055,
+        "stop" : 1639917357055,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-10"
+  }, {
+    "name" : "suite",
+    "value" : "Edit profile info test"
+  }, {
+    "name" : "testClass",
+    "value" : "Edit profile info test"
+  }, {
+    "name" : "testMethod",
+    "value" : "Positive: Set new username"
+  }, {
+    "name" : "package",
+    "value" : "Edit profile info test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-96.0.4664.110"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ed562af015cad201.json",
+  "parameterValues" : [ "chrome-96.0.4664.110" ]
+}

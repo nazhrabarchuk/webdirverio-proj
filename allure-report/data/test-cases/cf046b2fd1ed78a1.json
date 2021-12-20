@@ -1,0 +1,62 @@
+{
+  "uid" : "cf046b2fd1ed78a1",
+  "name" : "API POST: user login",
+  "fullName" : "API Login testing.API POST: user login",
+  "historyId" : "a19a067536e4beb618a5c46ced78c2c0",
+  "time" : {
+    "start" : 1639917368516,
+    "stop" : 1639917369595,
+    "duration" : 1079
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-2"
+  }, {
+    "name" : "suite",
+    "value" : "API Login testing"
+  }, {
+    "name" : "testClass",
+    "value" : "API Login testing"
+  }, {
+    "name" : "testMethod",
+    "value" : "API POST: user login"
+  }, {
+    "name" : "package",
+    "value" : "API Login testing"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-96.0.4664.110"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "cf046b2fd1ed78a1.json",
+  "parameterValues" : [ "chrome-96.0.4664.110" ]
+}

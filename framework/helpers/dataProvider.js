@@ -1,8 +1,13 @@
 // import * from "faker";
 
-const userLoginCredentials = {
+import Randomstring from "randomstring";
 
-
+async function randomData() {
+    return Randomstring.generate({
+        charset: 'alphabetic',
+        length: 7,
+        capitalization: 'lowercase'
+    })
 }
 
 const ADDRESS_DATA = {
@@ -20,8 +25,16 @@ const CARD_DATA = {
     month: 1,
     year: 2080
 }
+const REGISTRATION_DATA = {
+    email: `${await randomData()}@test.com`,
+    pass: await randomData(),
+    securityQuestion: "Mother\'s maiden name?",
+    securityAnswer: "Mothers name"
+}
 
 export {
     ADDRESS_DATA,
-    CARD_DATA
+    CARD_DATA,
+    REGISTRATION_DATA,
+    randomData
 };

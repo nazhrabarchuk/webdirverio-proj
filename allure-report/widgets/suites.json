@@ -1,4 +1,114 @@
 {
-  "total" : 0,
-  "items" : [ ]
+  "total" : 10,
+  "items" : [ {
+    "uid" : "d5610938225cabe305890f4fd47ff8e0",
+    "name" : "Add/remove items to the basket",
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "4ffc84d642c47c0c22fb8187cfe052b3",
+    "name" : "Purchase flow test",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "9e4ffe71eafaea8821bec9315e842709",
+    "name" : "Registration testing",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "466e714e113f726eebb6fc8525db398d",
+    "name" : "Edit profile info test",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "f4b07889bbc65f7b0b91277384e5029a",
+    "name" : "Login testing",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "52e9a5e39b6a915959f47065677889b6",
+    "name" : "API Leaving customer feedback tests",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "86812ac24d4b7c08b6886430febe3a42",
+    "name" : "API Login testing",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "fa19e8fe62e843314c3ed52ba60e4fa5",
+    "name" : "API Basket tests",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "22887f0818b1d48a326e6f090f3db5c4",
+    "name" : "Open social Faсebook testing",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "cfa3d4bb1c91446b369b8246e7bd6b65",
+    "name" : "Buying last items and checking if items are marked as sold-out test",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  } ]
 }

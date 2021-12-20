@@ -1,0 +1,87 @@
+{
+  "uid" : "2c17255e471df16e",
+  "name" : "Positive: Should change profile photo",
+  "fullName" : "Edit profile info test.Positive: Should change profile photo",
+  "historyId" : "b10de45425dc9f0ddcec7e31935fd6b6",
+  "time" : {
+    "start" : 1639917368402,
+    "stop" : 1639917373339,
+    "duration" : 4937
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Set new image url",
+      "time" : {
+        "start" : 1639917368403,
+        "stop" : 1639917368403,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 1,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-10"
+  }, {
+    "name" : "suite",
+    "value" : "Edit profile info test"
+  }, {
+    "name" : "testClass",
+    "value" : "Edit profile info test"
+  }, {
+    "name" : "testMethod",
+    "value" : "Positive: Should change profile photo"
+  }, {
+    "name" : "package",
+    "value" : "Edit profile info test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-96.0.4664.110"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2c17255e471df16e.json",
+  "parameterValues" : [ "chrome-96.0.4664.110" ]
+}

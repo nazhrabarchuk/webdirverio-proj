@@ -12,11 +12,6 @@ class HttpRequest {
     async doBaseRequest(method, requestData) {
         const request = async () => this.createRequest(method, requestData);
         let response = await request();
-
-        // if (response.statusCode < 400) {
-        //     console.log(`${method} request response status code: "${response.statusCode}"`);
-        //     return response.body;
-        // }
         return {
             body: response.body,
             status: response.statusCode
@@ -46,21 +41,31 @@ class HttpRequest {
 
     async doPostRequest(requestData) {
         console.log('***** requestData POST ****', requestData)
-        return await superagent.post(requestData.url).send(requestData.body).type('json');
+        return await superagent.post(requestData.url).send(requestData.body).type('json').catch((e)=>{
+            console.log(e);
+            return e;
+        });
     }
 
     async doGetRequest(requestData) {
-        return await superagent.get(requestData.url);
+        return await superagent.get(requestData.url).catch((e)=>{
+            console.log(e);
+            return e;
+        });
     }
 
     async doPutRequest(requestData) {
-        let request = await superagent.put(requestData.url).send(requestData.body).type('json')
-        return request.ok((status) => true)
+        return await superagent.put(requestData.url).send(requestData.body).type('json').catch((e)=>{
+            console.log(e);
+            return e;
+        })
     }
 
     async doDeleteRequest(requestData) {
-        let request = await superagent.delete(requestData.url);
-        return request.ok((status) => true)
+        return await superagent.delete(requestData.url).catch((e)=>{
+            console.log(e);
+            return e;
+        });
     }
 
 }

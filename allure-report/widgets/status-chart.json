@@ -1,1 +1,151 @@
-[ ]
+[ {
+  "uid" : "788bd43d8af1305b",
+  "name" : "Positive: should register with valid credentials",
+  "time" : {
+    "start" : 1639917334607,
+    "stop" : 1639917352794,
+    "duration" : 18187
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "59dbe6d77dc82e56",
+  "name" : "Should correct buy item from basket",
+  "time" : {
+    "start" : 1639917333513,
+    "stop" : 1639917376942,
+    "duration" : 43429
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "2c17255e471df16e",
+  "name" : "Positive: Should change profile photo",
+  "time" : {
+    "start" : 1639917368402,
+    "stop" : 1639917373339,
+    "duration" : 4937
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "185df4d6e4cd19",
+  "name" : "Add item to basket",
+  "time" : {
+    "start" : 1639917333923,
+    "stop" : 1639917362821,
+    "duration" : 28898
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "7fa78fb4cb38b552",
+  "name" : "Should leave feedback with rate 3",
+  "time" : {
+    "start" : 1639917367590,
+    "stop" : 1639917371148,
+    "duration" : 3558
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8875ec27a436dfd7",
+  "name" : "Remove item from basket",
+  "time" : {
+    "start" : 1639917362822,
+    "stop" : 1639917373407,
+    "duration" : 10585
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "7b4244239ca38516",
+  "name" : "API POST: user registration",
+  "time" : {
+    "start" : 1639917363813,
+    "stop" : 1639917368515,
+    "duration" : 4702
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cf046b2fd1ed78a1",
+  "name" : "API POST: user login",
+  "time" : {
+    "start" : 1639917368516,
+    "stop" : 1639917369595,
+    "duration" : 1079
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ed562af015cad201",
+  "name" : "Positive: Set new username",
+  "time" : {
+    "start" : 1639917333514,
+    "stop" : 1639917368401,
+    "duration" : 34887
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7a73f528137601b4",
+  "name" : "Should buy last items & marked as sold-out",
+  "time" : {
+    "start" : 1639917354944,
+    "stop" : 1639917394436,
+    "duration" : 39492
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f7cb9cf5fdeb3e32",
+  "name" : "API POST: add card to basket",
+  "time" : {
+    "start" : 1639917335899,
+    "stop" : 1639917368804,
+    "duration" : 32905
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bab3e751c2335f46",
+  "name" : "GET: checking feedbacks",
+  "time" : {
+    "start" : 1639917337629,
+    "stop" : 1639917367590,
+    "duration" : 29961
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d6b3dea0f30cf248",
+  "name" : "Positive: should switch to Facebook page",
+  "time" : {
+    "start" : 1639917337763,
+    "stop" : 1639917356551,
+    "duration" : 18788
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "de11abd68fb8da74",
+  "name" : "Negative: should display error login message",
+  "time" : {
+    "start" : 1639917334212,
+    "stop" : 1639917343118,
+    "duration" : 8906
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bd94e07e05caf904",
+  "name" : "Positive: should login with valid credentials",
+  "time" : {
+    "start" : 1639917363588,
+    "stop" : 1639917376225,
+    "duration" : 12637
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

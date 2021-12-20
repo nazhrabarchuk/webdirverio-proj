@@ -1,0 +1,87 @@
+{
+  "uid" : "f7cb9cf5fdeb3e32",
+  "name" : "API POST: add card to basket",
+  "fullName" : "API Basket tests.API POST: add card to basket",
+  "historyId" : "19f474c14cd014d6f519109723853889",
+  "time" : {
+    "start" : 1639917335899,
+    "stop" : 1639917368804,
+    "duration" : 32905
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "`Open Main page",
+      "time" : {
+        "start" : 1639917358604,
+        "stop" : 1639917358604,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 1,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "API Basket tests"
+  }, {
+    "name" : "testClass",
+    "value" : "API Basket tests"
+  }, {
+    "name" : "testMethod",
+    "value" : "API POST: add card to basket"
+  }, {
+    "name" : "package",
+    "value" : "API Basket tests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome-96.0.4664.110"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f7cb9cf5fdeb3e32.json",
+  "parameterValues" : [ "chrome-96.0.4664.110" ]
+}

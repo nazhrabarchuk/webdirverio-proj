@@ -5,13 +5,6 @@ export default class HtmlElement{
         this.elementName = name;
     }
 
-    // get elementName(){
-    //     return this.elementName;
-    // }
-    //
-    // get wdioElementInstance() {
-    //     return this.wdioElement;
-    // }
     get locator(){
         return this.wdioElement.selector;
     }

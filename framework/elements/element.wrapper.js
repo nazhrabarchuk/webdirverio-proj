@@ -35,17 +35,8 @@ export default class HtmlElement{
         return this.wdioElement.getText();
     }
 
-
     async getAttribute(atr){
         console.log( `Get attribute: ${atr} of "${this.elementName}"`);  
         return this.wdioElement.getAttribute(atr);
     }
-
-      async waitForDisplayed(){
-        await (async () => {
-          return this.wdioElement.isDisplayed();
-      });
-      }
-
- 
 }

@@ -2,7 +2,6 @@ import {BasePage} from "../../../framework/elements/base.page.js";
 import Dropdown from "../../../framework/elements/controls/dropdown.control.js";
 import Input from "../../../framework/elements/controls/input.control.js";
 import Button from "../../../framework/elements/controls/button.control.js";
-import Randomstring from "randomstring";
 import * as waits from "../../../framework/helpers/waits.js";
 import TextView from "../../../framework/elements/controls/text.view.control.js";
 
@@ -39,14 +38,6 @@ class RegistrationPage extends BasePage {
     get passNotMatchCo() {
         return new TextView($('//*[contains(@class,\'mat-error\') and contains(text(),\'Passwords do not match\')]'), 'Error pass not match text');
     }
-
-    // get randomData() {
-    //     return Randomstring.generate({
-    //         charset: 'alphabetic',
-    //         length: 7,
-    //         capitalization: 'lowercase'
-    //     })
-    // }
 
     async getErrorEmailText() {
         return this.errorEmailCo.getText();

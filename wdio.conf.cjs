@@ -1,5 +1,6 @@
 const allureReport = require("@wdio/allure-reporter").default;
 global.baseUrl = 'http://localhost:3000/';
+
 exports.config = {
     //
     // ====================
@@ -22,15 +23,19 @@ exports.config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
+
     specs: [
         './project/test/specs/**/*.test.js'
     ],
     suites: {
         api: [
-            './project/test/specs/api/*.test.js'
+            './project/test/specs/api/**/*.test.js'
         ],
         ui: [
-            './project/test/specs/ui/*.test.js'
+            './project/test/specs/ui/**/*.test.js'
+        ],
+        negative: [
+            './project/test/specs/**/*.negative.test.js'
         ]
     },
     // Patterns to exclude.
@@ -59,6 +64,7 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
+
     capabilities: [
 
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
@@ -68,14 +74,27 @@ exports.config = {
             browserName: 'chrome',
             acceptInsecureCerts: true,
             maxInstances: 1,
+            'goog:chromeOptions': {
+                args: [
+                    '--force-device-scale-factor=1',
+                    '--high-dpi-support=1',
+                    '--disable-infobars'
+                ],
+                // prefs: {
+                //     // disable chrome's annoying password manager
+                //     'profile.password_manager_enabled': false,
+                //     'credentials_enable_service': false,
+                // }
+            }
         },
         //   {
         //     browserName: 'firefox',
         //     acceptInsecureCerts: true,
         //     maxInstances: 5,
-        //       'moz:firefoxOptions': {
-        //           args: ['--binary PATH']
-        //       },
+        //      'moz:firefoxOptions': {
+        //           // args: ['-headless']
+        //          binary: 'C:/Users/nazarii.hrabarchuk/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Firefox'
+        //         },
         //   },
 
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -193,7 +212,8 @@ exports.config = {
             let screen = await browser.takeScreenshot();
             await allure.addAttachment(("ErrorScreenShot"), Buffer.from(screen, "base64"), "image/png")
         }
-
+        // await browser.deleteSession();
+        // await browser.refresh();
     },
     // afterScenario: async  (scenario) => {
     //     await browser.session('delete');

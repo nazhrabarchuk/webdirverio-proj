@@ -13,7 +13,9 @@ describe('Buying last items and checking if items are marked as sold-out test', 
         await clientData.getAuthToken();
         await mainPage.open();
         await clientData.setBrowserCreds();
-        await browser.pause(2000)
+
+        await browser.pause(2000);
+
         await mainPage.waitForPageAvailable();
     });
     it('Should buy last items & marked as sold-out', async () => {
@@ -23,10 +25,12 @@ describe('Buying last items and checking if items are marked as sold-out test', 
         await (await mainPage.getProductsComponent()).addItemProductToBasket(1);
         await (await mainPage.getHeaderCo()).clickBasketButton();
 
-        await basketPage.waitForPageAvailable()
+        await basketPage.waitForPageAvailable();
 
         await basketPage.plusCountItem();
+
         await browser.pause(2000);
+
         await basketPage.basketPurchaseFlow();
 
         await (await mainPage.getHeaderCo()).search(SEARCH_ITEM_TEXT);

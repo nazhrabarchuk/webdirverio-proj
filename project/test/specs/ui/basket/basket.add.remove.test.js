@@ -5,7 +5,7 @@ import {assert} from "chai";
 import {clientData} from "../../../../../framework/helpers/client.js";
 
 
-describe('Add/remove items to the basket', ()=>{
+describe('Add/remove items to the basket', () => {
     before(async () => {
         allureWrapper.addAllureDescription('Add/remove items to the basket');
         await clientData.register();
@@ -16,15 +16,24 @@ describe('Add/remove items to the basket', ()=>{
         await mainPage.waitForPageAvailable();
 
     });
-    it('Add item to basket', async ()=>{
-       await (await mainPage.getProductsComponent()).addItemProductToBasket(1);
-       await (await mainPage.getHeaderCo()).clickBasketButton();
+    it('Add item to basket', async () => {
+        await (await mainPage.getProductsComponent()).addItemProductToBasket(1);
+        await (await mainPage.getHeaderCo()).clickBasketButton();
 
-       await basketPage.waitForPageAvailable();
+        await basketPage.waitForPageAvailable();
 
-       assert.isTrue(await basketPage.basketNotEmpty());
+        //TODO: delete
+        await browser.pause(2000);
+
+        assert.isTrue(await basketPage.basketNotEmpty());
     });
-    it('Remove item from basket', async ()=>{
+    it('Remove item from basket', async () => {
+        await browser.refresh();
+        await basketPage.waitForPageAvailable();
+
+        //TODO: delete
+        await browser.pause(2000);
+
         await basketPage.removeItemFromBasket();
 
         await browser.refresh();

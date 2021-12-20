@@ -16,26 +16,25 @@ describe('Edit profile info test', () => {
 
         await mainPage.open();
         await clientData.setBrowserCreds();
+        await mainPage.waitForPageAvailable();
 
         await (await mainPage.getHeaderCo()).navigateToUserProfile();
-        await profilePage.waitForPageAvailable();
     })
 
     it('Positive: Set new username', async () => {
+        await profilePage.waitForPageAvailable();
         await profilePage.setUsername(NEW_USERNAME);
 
         await profilePage.waitForPageAvailable();
-
         expect(await profilePage.profileNameText).to.have.string(NEW_USERNAME);
     });
-    //
     it('Positive: Should change profile photo', async () => {
+        await profilePage.waitForPageAvailable();
         await profilePage.setImageUrl(NEW_IMAGE_URL);
 
         await browser.refresh();
 
         await profilePage.waitForPageAvailable();
-
         assert.isTrue(await profilePage.isProfileImgExisting());
     });
 })

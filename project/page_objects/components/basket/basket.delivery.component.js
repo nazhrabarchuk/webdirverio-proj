@@ -25,6 +25,7 @@ export default class BasketDeliveryComponent{
     }
 
     async chooseDelivery(){
+        allure.addStep("Choose delivery item");
         await this.clickStandardDeliveryButton();
         await this.clickContinueButton();
     }

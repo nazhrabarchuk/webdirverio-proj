@@ -70,6 +70,7 @@ class BasketPage extends BasePage {
     }
 
     async  basketPurchaseFlow(){
+        allure.addStep("Basket purchase flow steps");
         await this.clickCheckoutButton();
         await (await this.getBasketAddressCo()).waitForComponentAvailable();
 

@@ -34,7 +34,7 @@ class ProfilePage extends BasePage{
         allure.addStep("Set new username");
         await this.profileUsernameInput.setValue(name);
         await this.usernameSubmitButton.click();
-        await this.profileUsernameInput.clearValue();
+        // await this.profileUsernameInput.clearValue();
     }
 
     async setImageUrl(url){

@@ -10,6 +10,7 @@
     "wdio-run": "cls && wdio run wdio.conf.cjs",
     "wdio-run-api": "cls && wdio run wdio.conf.cjs --suite api",
     "wdio-run-ui": "cls && wdio run wdio.conf.cjs --suite ui",
+    "wdio-run-negative": "cls && wdio run wdio.conf.cjs --suite negative",
     "allure-report": "allure generate allure-results -o allure-report --clean && allure open"
   },
   "devDependencies": {
@@ -23,6 +24,7 @@
     "allure-commandline": "^2.13.8",
     "chai": "^4.3.4",
     "chromedriver": "^96.0.0",
+    "deepmerge": "^4.2.2",
     "faker": "^5.5.3",
     "randomstring": "^1.2.1",
     "selenium-standalone": "^8.0.8",

@@ -8,7 +8,10 @@ describe('Login testing', () => {
     before(async () => {
         allureWrapper.addAllureDescription('Positive: login test description');
         await clientData.register();
+        await browser.refresh();
         await mainPage.open();
+
+        await mainPage.waitForPageAvailable();
 
     });
     it('Positive: should login with valid credentials', async () => {

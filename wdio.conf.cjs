@@ -25,7 +25,7 @@ exports.config = {
     //
 
     specs: [
-        './project/test/specs/**/*.test.js'
+        './project/test/specs/**/sold.out.product.test.js'
     ],
     suites: {
         api: [
@@ -70,32 +70,36 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
+        // {
+        //     browserName: 'chrome',
+        //     acceptInsecureCerts: true,
+        //     maxInstances: 1,
+        //     'goog:chromeOptions': {
+        //         args: [
+        //             '--force-device-scale-factor=1',
+        //             '--high-dpi-support=1',
+        //             '--disable-infobars'
+        //         ],
+        //         // prefs: {
+        //         //     // disable chrome's annoying password manager
+        //         //     'profile.password_manager_enabled': false,
+        //         //     'credentials_enable_service': false,
+        //         // }
+        //     }
+        // },
         {
-            browserName: 'chrome',
+            browserName: 'firefox',
             acceptInsecureCerts: true,
             maxInstances: 1,
-            'goog:chromeOptions': {
+            'moz:firefoxOptions': {
                 args: [
                     '--force-device-scale-factor=1',
                     '--high-dpi-support=1',
                     '--disable-infobars'
                 ],
-                // prefs: {
-                //     // disable chrome's annoying password manager
-                //     'profile.password_manager_enabled': false,
-                //     'credentials_enable_service': false,
-                // }
-            }
+                binary: 'C:/Users/nazarii.hrabarchuk/AppData/Local/Mozilla Firefox/firefox.exe'
+            },
         },
-        //   {
-        //     browserName: 'firefox',
-        //     acceptInsecureCerts: true,
-        //     maxInstances: 5,
-        //      'moz:firefoxOptions': {
-        //           // args: ['-headless']
-        //          binary: 'C:/Users/nazarii.hrabarchuk/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Firefox'
-        //         },
-        //   },
 
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.

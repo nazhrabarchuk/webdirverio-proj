@@ -29,7 +29,10 @@ describe('Buying last items and checking if items are marked as sold-out test', 
 
         await basketPage.plusCountItem();
 
-        await browser.pause(2000);
+        //TODO: replace with waits
+        // await browser.pause(2000);
+
+        await basketPage.waitForPageAvailable();
 
         await basketPage.basketPurchaseFlow();
 

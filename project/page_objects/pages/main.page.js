@@ -27,7 +27,7 @@ class MainPage extends BasePage {
 
     async open() {
         allure.addStep("Open Main page");
-        super.open('/#');
+        await super.open('/#');
         if (await this.closeDialogButton.isExisting()) {
             await this.clickCloseDialogButton();
         }

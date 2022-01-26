@@ -1,5 +1,5 @@
-import HtmlElement from "../element.wrapper.js";
+import HtmlElement from '../element.wrapper.js'
 
-export default class Image extends HtmlElement{
+export default class Image extends HtmlElement {
 
 }

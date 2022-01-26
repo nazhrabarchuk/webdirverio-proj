@@ -32,7 +32,7 @@ exports.config = {
             './project/test/specs/api/**/*.test.js'
         ],
         ui: [
-            './project/test/specs/ui/**/*.test.js'
+            './project/test/specs/ui/**/login.positive.test.js'
         ],
         negative: [
             './project/test/specs/**/*.negative.test.js'
@@ -87,15 +87,15 @@ exports.config = {
                 // }
             }
         },
-        {
-            browserName: 'firefox',
-            acceptInsecureCerts: true,
-            maxInstances: 1,
-            'moz:firefoxOptions': {
-                // args: [],
-                binary: 'C:/Users/nazarii.hrabarchuk/AppData/Local/Mozilla Firefox/firefox.exe'
-            },
-        },
+        // {
+        //     browserName: 'firefox',
+        //     acceptInsecureCerts: true,
+        //     maxInstances: 1,
+        //     'moz:firefoxOptions': {
+        //         // args: [],
+        //         binary: 'C:/Users/nazarii.hrabarchuk/AppData/Local/Mozilla Firefox/firefox.exe'
+        //     },
+        // },
 
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -196,7 +196,7 @@ exports.config = {
     // resolved to continue.
     async before(capabilities, specs) {
         global.allure = allureReport;
-
+        require('expect-webdriverio').setOptions({ wait: 5000 })
         // setting default browser size
         await browser.setWindowSize(1980, 1000);
         console.log(`------- Browser name: ${capabilities.browserName}`)
